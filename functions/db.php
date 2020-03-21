@@ -10,9 +10,9 @@ function getPdo(): PDO
   try {
     // A FAIRE : séparer les coordonnées de la base de données dans un fichier non intégré au dépôt git
     $pdo = new PDO(
-      "mysql:host=localhost;dbname=correction",
-      "correction",
-      "z5iDTO1rYSv8u2BZ"
+      "mysql:host=localhost;dbname=v1projet",
+      "v1projet",
+      "RzEQ7frO83LkQmU6"
     );
     return $pdo;
   } catch(PDOException $ex) {
