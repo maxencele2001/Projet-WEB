@@ -30,13 +30,13 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
   }
 }
 ?>
-
 <h1>Connexion</h1>
 <h4>Mets les bons identifiants bogoss</h4>
 
 <?php if ($verif) { ?>
   <div class="alert alert-danger" role="alert">
     Mauvais identifiants bogoss
+    <?php $_SESSION = []; ?>
   </div>
 <?php } ?>
 

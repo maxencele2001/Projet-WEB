@@ -14,12 +14,24 @@
       </li>
 </ul>
       <ul class="navbar-nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="/login.php">Se connecter</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/signin.php">S'inscrire</a>
-  </li>
+      <?php
+      @session_start();
+      if (isset($_SESSION['state']) && $_SESSION['state'] == 'connected') {  ?>        
+        <li class="nav-item">
+          <a class="nav-link" href="/public/logged/profil.php">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout.php">Déconnexion</a>
+        </li>
+
+      <?php }else{?>
+        <li class="nav-item">
+          <a class="nav-link" href="/login.php">Se connecter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin.php">S'inscrire</a>
+        </li>
+        <?php } ?>
 </ul>
   </div>
 </nav>
