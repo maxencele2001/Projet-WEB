@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/db.php";
 
-function getProducts(): array
+function getAnnonces(): array
 {
   $pdo = getPdo();
 
