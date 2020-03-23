@@ -1,4 +1,5 @@
 <?php
+session_start(); // formule pour initialiser une session
 require_once '../layout/header.php';
 require_once '../functions/db.php';
 require_once '../functions/redirect.php';
@@ -8,7 +9,6 @@ $email = ""; // Quoi qu'il arrive, $email sera toujours initialisée à une cha�
 $verif = false;
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en post sinon les identifiants apparaissent dans l'url
-  session_start(); // formule pour initialiser une session
   $password = $_POST['password'];
   $email = $_POST['email'];
   // Une fois l'utilisateur a rentre ses coordonnees on les assigne a nos variables, la plus importante étant le email qu'on va chercher dans la bdd et qu'on peut afficher sur les pages pour vérifier que c'est bel et bien cet user qui est co
@@ -23,7 +23,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
 
   if ($row && password_verify($password, $row['password'])) {
     $_SESSION['state'] = 'connected';
-    $_SESSION['user_id'] = $row['ID'];
+    $_SESSION['user_id'] = $row['id'];
+    $_SESSION['user_is_hote'] = $row['is_hote'];
     redirect('/public'); // l'utilisateur est connecté et est redirigé la ou il a les droits
   } else {
     $verif = true; // si il n'a pas reussi a se connecter $verif devient true et active le if qui suit pour l'en informer
