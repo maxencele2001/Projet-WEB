@@ -1,7 +1,9 @@
 <?php require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
+require_once '../../layout/header.php';
 ?>
 <?php
+@session_start();
 $id = $_SESSION['user_id'];
 if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password2'])){
     if ($_POST['password'] == $_POST['password2']){
@@ -38,3 +40,5 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
   <button type="submit" class="btn btn-primary">Modifier</button>
 </div>
 </form>
+
+<?php require_once '../../layout/footer.php';
