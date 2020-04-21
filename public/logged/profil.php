@@ -19,3 +19,5 @@ $profil = getProfil($id); ?>
     <a href="#" class="btn btn-primary">Modifier le profil</a>
   </div>
 </div>
+
+<?php require_once '../../layout/footer.php';

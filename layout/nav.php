@@ -18,7 +18,7 @@
       @session_start();
       if(isset($_SESSION['user_is_hote']) && $_SESSION['user_is_hote'] == 1){ ?>
         <li class="nav-item">
-        <a class="nav-link" href="#">Créer une annonce</a>
+        <a class="nav-link" href="/logged/annonce.php">Créer une annonce</a>
         </li>
         <?php }else{
         }?>
