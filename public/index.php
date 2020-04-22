@@ -52,5 +52,5 @@
 
 </html>
 
-
+<?php require_once __DIR__ . '/listeBien.php'; ?>
 <?php require_once '../layout/footer.php'; ?>

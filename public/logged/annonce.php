@@ -52,7 +52,7 @@ require_once '../../layout/header.php';
 </form>
 <?php
 
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photo, int $prix): bool
+function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix): bool
 {
   $pdo = getPdo();// recup de ma bdd
   
@@ -64,7 +64,7 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
     'nb_chambre' => $nb_chambre,
     'nb_voyageurs' => $nb_voyageurs,
     'description' => $description,
-    'photo' => $photo,
+    'photo' => $photobdd,
     'prix' => $prix
   ]);
 }
@@ -84,18 +84,24 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
     $prix = $_POST['prix'];
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])){
       echo "photo";
+      $photobdd = "";
     foreach ($_FILES['photo']['error'] as $key => $error) {
       if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES["photo"]["tmp_name"][$key];
         $photo = $_FILES["photo"]["name"][$key];
         $destination = __DIR__ . "/../img/annonce/" . $photo;
-
+        if($photobdd == ""){
+          $photobdd = $photo;
+        }
+        else{
+        $photobdd = $photobdd.";".$photo;
+        }
         if (move_uploaded_file($tmp_name, $destination)) {
           echo $photo . " correctement enregistré<br />";
-          addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photo, $prix);//gaffe foreach²
+          
         }
       }
-    }
+    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix);//gaffe foreach
   }
 }
 
