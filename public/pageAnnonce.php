@@ -16,14 +16,13 @@ $id = $_GET['id'];
 $uneAnnonce = getAnnonce($id);
 
 $photos = $uneAnnonce['photo'];
-$photo = explode (";", $photos);
+$photos = explode (";", $photos);
+foreach($photos as $photo){
+    echo "<img src='img/annonce/".$photo."' alt='".$photo."'/>";
+}
+//$i = count($photos);
 
-$i = count($photo);
-
-print($i);
-print($photo[0]);
-print($photo[1]);
-print($photo[2]); ?>
+?>
 
 
 
