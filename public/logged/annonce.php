@@ -69,10 +69,12 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
   ]);
 }
 
+
 if (!empty($_POST['titre'])){
 echo "jsuis con";
 var_dump($_POST);
 }
+
 // Fichiers multiples
 if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
     echo "oui";
