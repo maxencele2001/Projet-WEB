@@ -1,4 +1,5 @@
 <?php //faire un foreach de tous les biens et mettre la card entiere en href plus pratique?>
+<!--
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
@@ -13,3 +14,20 @@
     </div>
   </div>
 </div>
+-->
+
+<?php
+$title = "Les Annonces";
+require_once 'layout/header.php';
+require_once 'functions/annonce.php';
+
+$annonces = getAnnonces();
+?>
+
+  <div class="row">
+    <?php
+    foreach ($annonces as $annonce) {
+      require 'views/product/item.php';
+    }
+    ?>
+  </div>
