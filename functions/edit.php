@@ -18,10 +18,10 @@ function updateProfil(int $id, string $password, string $email, bool $is_hote):b
     $pdo=getPdo();
     $query= "UPDATE users SET password= :password, email= :email, is_hote= :is_hote WHERE id=:id";
     $stmt = $pdo->prepare($query);
-    return $stmt->execute([
+    return $stmt->execute(array(
         ':password' => password_hash($password, PASSWORD_BCRYPT, ['cost'=> 10]),
         ':email' => $email,
         ':is_hote' => $is_hote,
         ':id' => $id
-    ]);
+    ));
 }

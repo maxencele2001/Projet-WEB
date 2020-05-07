@@ -53,6 +53,38 @@ $uneAnnonce = getAnnonce($id_annonce);
 </div>
 <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
+<?php
+if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
+    echo "oui";
+    $titre = $_POST['titre'];
+    $adresse = $_POST['adresse'];
+    $nb_chambre = $_POST['nb_chambre'];
+    $nb_voyageurs = $_POST['nb_voyageurs'];
+    $description = $_POST['description'];
+    $prix = $_POST['prix'];
+    if (isset($_FILES['photo']) && !empty($_FILES['photo'])){
+      echo "photo";
+      $photobdd = "";
+    foreach ($_FILES['photo']['error'] as $key => $error) {
+      if ($error == UPLOAD_ERR_OK) {
+        $tmp_name = $_FILES["photo"]["tmp_name"][$key];
+        $photo = $_FILES["photo"]["name"][$key];
+        $destination = __DIR__ . "/../img/annonce/" . $photo;
+        if($photobdd == ""){
+          $photobdd = $photo;
+        }
+        else{
+        $photobdd = $photobdd.";".$photo;
+        }
+        if (move_uploaded_file($tmp_name, $destination)) {
+          echo $photo . " correctement enregistré<br />";
+          
+        }
+      }
+    }
+    updateAnnonce($titre, $adresse, $description, intval($nb_voyageurs), intval($nb_chambre),intval($prix), $photobdd, intval($id_annonce));
+  }
+}
 
-
+?>
 <?php require_once '../../layout/footer.php';
