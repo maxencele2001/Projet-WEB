@@ -1,11 +1,16 @@
 <?php //faire un foreach de tous les biens et mettre la card entiere en href plus pratique
 require_once '../functions/listeBien.php';
 $liste = getListe();
-foreach ($liste as $annonce){?>
+foreach ($liste as $annonce){
+$id_add = $annonce['id'];
+$photos = getAnnonce($id_add);
+$photo = $photos['photo'];
+$photo = explode (";", $photo);
+$photo = $photo[0]?>
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="..." class="card-img" alt="photoannonce">
+    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
     </div>
     <div class="col-md-8">
       <div class="card-body">

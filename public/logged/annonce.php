@@ -1,6 +1,7 @@
 <?php require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
+$id = $_SESSION['user_id'];
 ?>
 
 <form method="POST" enctype="multipart/form-data">
@@ -52,11 +53,11 @@ require_once '../../layout/header.php';
 </form>
 <?php
 
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix): bool
+function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id): bool
 {
   $pdo = getPdo();// recup de ma bdd
   
-  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix)";// formule pour l'ajout
+  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users)";// formule pour l'ajout
   $stmt = $pdo->prepare($query);
   return $stmt->execute([
     'titre' => $titre,
@@ -65,7 +66,8 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
     'nb_voyageurs' => $nb_voyageurs,
     'description' => $description,
     'photo' => $photobdd,
-    'prix' => $prix
+    'prix' => $prix,
+    'id_users' => $id
   ]);
 }
 
@@ -103,7 +105,7 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix);//gaffe foreach
+    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id);//gaffe foreach
   }
 }
 
