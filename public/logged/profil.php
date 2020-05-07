@@ -16,7 +16,7 @@ $profil = getProfil($id); ?>
     ?></h4>
     <h5 class="card-title"><?php echo $profil['nom']?> <?php echo $profil['prenom']?></h5>
     <p class="card-text"><?php echo $profil['email']?> </p>
-    <a href="#" class="btn btn-primary">Modifier le profil</a>
+    <a href="editAnnonce.php/" class="btn btn-primary">Modifier le profil</a>
   </div>
 </div>
 

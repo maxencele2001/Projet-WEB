@@ -35,7 +35,13 @@
       }
     }
   }
-
+  echo(date('d/m/Y'));
+  if(isset($_POST['date']) && isset($_POST['date2'])){
+    $date = $_POST['date'];
+    $date2 = $_POST['date2'];
+    echo($date . $date2);
+  }
+  
   ?>
 
   <!-- Ne pas oublier l'attribut enctype -->
@@ -48,6 +54,15 @@
     <input type="file" name="photos[]" multiple />
     <input type="submit" value="Envoyer" />
   </form>
+
+  <form action="POST">
+  <input class="form-control" type="date" name="date" >
+  <input class="form-control" type="date" name="date2" >
+  <input type="submit" value="Envoyer" />
+  </form>
+  <?php 
+
+ ?>
 </body>
 
 </html>

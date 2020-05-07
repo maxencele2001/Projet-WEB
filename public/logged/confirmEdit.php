@@ -1,0 +1,58 @@
+<?php require_once '../../functions/db.php';
+require_once '../../functions/edit.php';
+require_once '../../layout/header.php';
+require_once '../../functions/listeBien.php';
+$id_annonce = $_GET['id'];
+$uneAnnonce = getAnnonce($id_annonce);
+?>
+
+<form method="POST" enctype="multipart/form-data">
+<div class="form-group">
+    <label for="titre">Titre</label>
+    <input type="text" class="form-control" id="titre" name="titre" value="<?php echo $uneAnnonce['titre'] ?>">
+  </div>
+  <div class="form-group">
+    <label for="adresse">Adresse</label>
+    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse + ZIP" value="<?php echo $uneAnnonce['adresse'] ?>" >
+  </div>
+  <div class="form-group">
+    <label for="nb_voyageurs">Nombre de voyageurs</label>
+    <select class="form-control" id="nb_voyageurs" name="nb_voyageurs">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="nb_chambre">Nombre de chambres</label>
+    <select class="form-control" id="nb_chambre" name="nb_chambre">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="3" placeholder="<?php echo $uneAnnonce['description'] ?>"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="prix">Prix</label>
+    <input type="number" min="0" class="form-control" id="prix" name="prix" value="<?php echo $uneAnnonce['prix'] ?>">
+  </div>
+  <div class="form-group">
+    <input type="file" id="photo" name="photo[]" multiple/>
+</div>
+<button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+
+
+<?php require_once '../../layout/footer.php';
