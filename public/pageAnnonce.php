@@ -3,7 +3,7 @@ require_once '../functions/edit.php';
 require_once '../layout/header.php';
 require_once '../functions/listeBien.php';
 
-$id_users = $_SESSION['user_id'];
+
 $id_annonce = $_GET['id'];
 $uneAnnonce = getAnnonce($id_annonce);
 $prix_annonce = $uneAnnonce['prix'];
@@ -117,13 +117,17 @@ function dateDiff(date, date2){
 }
 
 
-
-if (isset($_POST['date']) && isset($_POST['date2']) && isset($_POST['voyageurs']) && !empty($_POST['prix_total'])){
-  $arrivee = $_POST['date'];
-  $depart = $_POST['date2'];
-  $voyageurs = $_POST['voyageurs'];
-  $prix_total = $_POST['prix_total'];
-  reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
+if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
+  $id_users = $_SESSION['user_id'];
+  if (isset($_POST['date']) && isset($_POST['date2']) && isset($_POST['voyageurs']) && !empty($_POST['prix_total'])){
+    $arrivee = $_POST['date'];
+    $depart = $_POST['date2'];
+    $voyageurs = $_POST['voyageurs'];
+    $prix_total = $_POST['prix_total'];
+    reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
+  }
+}else{
+  echo("Connectez vous pour réserver");
 }
 
 

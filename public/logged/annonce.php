@@ -1,7 +1,12 @@
 <?php require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
-$id = $_SESSION['user_id'];
+if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
+  $id_users = $_SESSION['user_id'];
+}
+else{
+  echo("ptit filou faut se co hehe");
+}
 ?>
 
 <form method="POST" enctype="multipart/form-data">
