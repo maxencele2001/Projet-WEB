@@ -58,7 +58,7 @@ else{
 </form>
 <?php
 
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id): bool
+function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool
 {
   $pdo = getPdo();// recup de ma bdd
   
@@ -72,7 +72,7 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
     'description' => $description,
     'photo' => $photobdd,
     'prix' => $prix,
-    'id_users' => $id
+    'id_users' => $id_users
   ]);
 }
 
@@ -108,7 +108,7 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id);//gaffe foreach
+    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users);//gaffe foreach
   }
 }
 

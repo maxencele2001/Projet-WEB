@@ -22,6 +22,7 @@ foreach ($myAnnonce as $annonce){
             <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
             <p class="card-text"><?php echo $annonce['adresse'] ?></p>
             <p class="card-text"><a href="../confirmEdit.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Modifier</a></p>
+            <p class="card-text"><a href="../suppr.php?id=<?php echo $annonce['id']; ?>" class="btn btn-alert">Supprimer</a></p>
           </div>
         </div>
       </div>

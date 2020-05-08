@@ -3,7 +3,6 @@ require_once '../functions/edit.php';
 require_once '../layout/header.php';
 require_once '../functions/listeBien.php';
 
-
 $id_annonce = $_GET['id'];
 $uneAnnonce = getAnnonce($id_annonce);
 $prix_annonce = $uneAnnonce['prix'];
@@ -123,8 +122,21 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
     $arrivee = $_POST['date'];
     $depart = $_POST['date2'];
     $voyageurs = $_POST['voyageurs'];
-    $prix_total = $_POST['prix_total'];
-    reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
+    $prix_total = $_POST['prix_total'];   
+    $id_hote=getId_hote($id_annonce);
+    $id_hote=$id_hote['id_users'];
+    $solde_hote = getSolde_hote($id_hote);
+    $solde_hote = $solde_hote['solde'];
+    $solde_client = getSolde_client($id_users);
+    $solde_client = $solde_client['solde'];
+    $solde_hote = $solde_hote + $prix_total;
+    $solde_client = $solde_client - $prix_total;
+    #rajouter if de verif de date
+    if ($solde_client>=0){
+      reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
+      updateSoldeHote($solde_hote,$id_hote);
+      updateSoldeClient($solde_client,$id_users);
+    }
   }
 }else{
   echo("Connectez vous pour réserver");
