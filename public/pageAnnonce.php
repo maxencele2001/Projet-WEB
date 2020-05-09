@@ -125,17 +125,28 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
     $prix_total = $_POST['prix_total'];   
     $id_hote=getId_hote($id_annonce);
     $id_hote=$id_hote['id_users'];
-    $solde_hote = getSolde_hote($id_hote);
-    $solde_hote = $solde_hote['solde'];
-    $solde_client = getSolde_client($id_users);
-    $solde_client = $solde_client['solde'];
+    $hote = getHote($id_hote);
+    $solde_hote = $hote['solde'];
+    $mail_hote = $hote['email'];
+    $client = getClient($id_users);
+    $solde_client = $client['solde'];
+    $mail_client = $client['email'];
+    $nom_client = $client['nom'];
     $solde_hote = $solde_hote + $prix_total;
     $solde_client = $solde_client - $prix_total;
+    $message_client = "Votre réservation a bien été prise en compte";
+    $message_hote = "Vous avez une nouvelle réservation de Monsieur ou Madame ".$nom_client;
+    $subject = "LOC'Y Réservation";
     #rajouter if de verif de date
     if ($solde_client>=0){
+      #OUVRIR maildev -s 2525
       reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
       updateSoldeHote($solde_hote,$id_hote);
       updateSoldeClient($solde_client,$id_users);
+      mail($mail_hote,$subject,$message_hote);
+      mail($mail_client,$subject,$message_client);
+    }else{
+      echo ("t pauvre mon bonhomme");
     }
   }
 }else{

@@ -1,12 +1,43 @@
 <?php 
 require_once __DIR__ . '/db.php';
 
-function getListe():array{
+function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null){
     $pdo=getPdo();
-    $query = 'SELECT * FROM annonces';
-    $stmt = $pdo->prepare($query);
-    $stmt = $pdo->query($query);
+    $query = "SELECT * FROM annonces";
+    if($prixmin!== null && $prixmax !== null && $ville !== null){
+      echo ("oui");
+      $query = $query . " WHERE prix BETWEEN ':prixmin' AND ':prixmax' AND adresse LIKE ':adresse'";
+      echo("non");
+      $stmt = $pdo->prepare($query);
+      $stmt->execute(array(
+        'prixmin' => $prixmin,
+        'prixmax' => $prixmax,
+        'adresse' => $ville
+      ));
+      #return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+      #if ($ville !== null) {
+      #$query = $query . " AND nom LIKE :adresse";
+      #$stmt = $pdo->prepare($query);
+      #$stmt->execute(array(
+       #'adresse' => "%$ville%"
+       # ));
+    #}# else {
+     # $stmt = $pdo->query($query);
+    #}#contracter tous les if ensemble
+    }else{
+      if ($ville !== null) {
+        $query = $query . " WHERE nom LIKE :adresse";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(array(
+          'adresse' => "%$ville%"
+        ));
+      } else {
+        $stmt = $pdo->query($query);
+    }
+    }
+    echo("oui");
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+    echo("non");
 }
 
 function getAnnonce(int $id): ?array
@@ -59,24 +90,24 @@ function updateSoldeClient(int $solde, int $id_users){
   ));
 };
 
-function getSolde_client(int $id){
+function getClient(int $id){
   $pdo = getPdo();
-  $query = "SELECT solde FROM users WHERE id=:id";
+  $query = "SELECT * FROM users WHERE id=:id";
   $stmt = $pdo->prepare($query);
   $stmt->execute([
     'id'=> $id,
   ]);
-  return $solde_client = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $client = $stmt->fetch(PDO::FETCH_ASSOC);
 };
 
-function getSolde_hote(int $id_hote){
+function getHote(int $id_hote){
   $pdo = getPdo();
-  $query = "SELECT solde FROM users WHERE id=:id";
+  $query = "SELECT * FROM users WHERE id=:id";
   $stmt = $pdo->prepare($query);
   $stmt->execute([
     'id'=> $id_hote,
   ]);
-  return $solde_hote = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $hote = $stmt->fetch(PDO::FETCH_ASSOC);
 };
 
 function getId_hote(int $id_annonce){
