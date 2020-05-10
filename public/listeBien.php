@@ -5,8 +5,8 @@ require_once '../functions/listeBien.php';?>
 
 
 <form method="POST">
-<!--input class="form-control" type="date" name="date" -->
-<!--input class="form-control" type="date" name="date2" -->
+<input class="form-control" type="date" name="date">
+<input class="form-control" type="date" name="date2">
 <input type="text" name="ville" id="ville">
 <input type="number" name="prixmin" id="prixmin" min="0">
 <input type="number" name="prixmax" id="prixmax" min="0">
@@ -23,21 +23,35 @@ $prixmin = null;
 $prixmax = null;
 $ville = null;
 
-if(isset($_POST['ville'])){
+/*if(isset($_POST['date']) && isset($_POST['date2'])){
+  $date = $_POST['date'];
+  $date2 = $_POST['date2'];
+  var_dump($_POST);
+  $liste=verif_reserve($date,$date2);
+  var_dump($liste['id_annonce']);
+  $id_add
+}*/
+
+/*if(isset($_POST['ville'])){
   $ville = $_POST['ville'];
-}
-if(isset($_POST['prixmin']) && isset($_POST['prixmax'])){
+  $liste=getListe($prixmin,$prixmax,$ville);
+}*/
+
+if(isset($_POST['prixmin']) && isset($_POST['prixmax']) && isset($_POST['ville'])){
   $prixmin = $_POST['prixmin'];
   $prixmax = $_POST['prixmax'];
-  var_dump($_POST);
+  $ville = $_POST['ville'];
+  #var_dump($_POST);
+  $liste = getListe(intval($prixmin),intval($prixmax),$ville);
+  var_dump($liste);
+}else{
+  $liste = getListe($prixmin,$prixmax,$ville);
 }
 
 
 
 
-
-$liste = getListe($prixmin,$prixmax,$ville);
-var_dump($liste);
+#$liste = getListe();
 foreach ($liste as $annonce){
 $id_add = $annonce['id'];
 $photos = getAnnonce($id_add);

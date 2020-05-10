@@ -5,40 +5,40 @@ function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null)
     $pdo=getPdo();
     $query = "SELECT * FROM annonces";
     if($prixmin!== null && $prixmax !== null && $ville !== null){
-      echo ("oui");
-      $query = $query . " WHERE prix BETWEEN ':prixmin' AND ':prixmax' AND adresse LIKE ':adresse'";
-      echo("non");
+      $query .= " WHERE prix BETWEEN :prixmin AND :prixmax AND adresse LIKE :adresse";
       $stmt = $pdo->prepare($query);
       $stmt->execute(array(
         'prixmin' => $prixmin,
         'prixmax' => $prixmax,
-        'adresse' => $ville
+        'adresse' => "%$ville%"
       ));
-      #return $stmt -> fetchAll(PDO::FETCH_ASSOC);
-      #if ($ville !== null) {
-      #$query = $query . " AND nom LIKE :adresse";
-      #$stmt = $pdo->prepare($query);
-      #$stmt->execute(array(
-       #'adresse' => "%$ville%"
-       # ));
-    #}# else {
-     # $stmt = $pdo->query($query);
-    #}#contracter tous les if ensemble
     }else{
       if ($ville !== null) {
-        $query = $query . " WHERE nom LIKE :adresse";
+        $query .= " WHERE nom LIKE :adresse";
         $stmt = $pdo->prepare($query);
-        $stmt->execute(array(
+        $stmt->execute([
           'adresse' => "%$ville%"
-        ));
+        ]);
       } else {
         $stmt = $pdo->query($query);
+        echo("oui");
     }
     }
-    echo("oui");
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
-    echo("non");
 }
+
+
+function verif_reserve($date,$date2){
+  $pdo=getPdo();
+  $query = "SELECT id_annonce FROM reservation WHERE :date BETWEEN arrivee AND depart OR :date2 BETWEEN arrivee AND depart";
+  $stmt = $pdo->prepare($query);
+  $stmt->execute(array(
+    'date'=>$date,
+    'date2'=> $date2
+  ));
+  return $stmt -> fetchAll(PDO::FETCH_COLUMN);
+}
+
 
 function getAnnonce(int $id): ?array
 {

@@ -22,10 +22,7 @@ function reserve($arrivee,$depart,$id_annonce,$prix,$id_users,$voyageurs){
 ]);
 }
 
-function verif_reserve(){
-  $pdo = getPdo();
-  $query = "SELECT * FROM reservation BETWEEN :date AND :date2";
-}
+
 
 /*function def_nb_jours(){
   $pdo = getPdo();
@@ -116,11 +113,32 @@ function dateDiff(date, date2){
 }
 
 
+
+
+
+
+
 if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
   $id_users = $_SESSION['user_id'];
   if (isset($_POST['date']) && isset($_POST['date2']) && isset($_POST['voyageurs']) && !empty($_POST['prix_total'])){
-    $arrivee = $_POST['date'];
-    $depart = $_POST['date2'];
+    $date = $_POST['date'];
+    $date2 = $_POST['date2'];
+    $verif = verif_reserve($date,$date2);
+    #var_dump($verif);
+    echo("oui");
+    var_dump($id_annonce);
+    $reserve = 0;
+    foreach($verif as $num_appart){#cherche si l'annonce est déja prise et retourne 1 pour empecher la reservation
+      var_dump($num_appart);
+      if(intval($num_appart) == intval($id_annonce)){
+        echo("heho");
+        $reserve =1;
+      }else{
+        echo("pas pris");
+      }
+    }
+    #$arrivee = $_POST['date'];
+    #$depart = $_POST['date2'];
     $voyageurs = $_POST['voyageurs'];
     $prix_total = $_POST['prix_total'];   
     $id_hote=getId_hote($id_annonce);
@@ -138,16 +156,22 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
     $message_hote = "Vous avez une nouvelle réservation de Monsieur ou Madame ".$nom_client;
     $subject = "LOC'Y Réservation";
     #rajouter if de verif de date
-    if ($solde_client>=0){
-      #OUVRIR maildev -s 2525
-      reserve($arrivee,$depart,$id_annonce,$prix_total,$id_users,$voyageurs);
-      updateSoldeHote($solde_hote,$id_hote);
-      updateSoldeClient($solde_client,$id_users);
-      mail($mail_hote,$subject,$message_hote);
-      mail($mail_client,$subject,$message_client);
+    if($reserve == 0){
+      if ($solde_client>=0){
+        echo("oui oui");
+        #OUVRIR maildev -s 2525 sur un autre terminal
+        reserve($date,$date2,$id_annonce,$prix_total,$id_users,$voyageurs);
+        updateSoldeHote($solde_hote,$id_hote);
+        updateSoldeClient($solde_client,$id_users);
+        mail($mail_hote,$subject,$message_hote);
+        mail($mail_client,$subject,$message_client);
+      }else{
+        echo ("t pauvre mon bonhomme");
+      }
     }else{
-      echo ("t pauvre mon bonhomme");
-    }
+    echo("déja réservé");
+    #var_dump($verif);
+    } 
   }
 }else{
   echo("Connectez vous pour réserver");

@@ -2,8 +2,8 @@
 
 
   <form method="POST">
-  <!--input class="form-control" type="date" name="date" -->
-  <!--input class="form-control" type="date" name="date2" -->
+  <input class="form-control" type="date" name="date">
+  <input class="form-control" type="date" name="date2">
   <input type="number" name="prix" id="prix" min="0">
   <input type="submit" value="Envoyer" />
   </form>
