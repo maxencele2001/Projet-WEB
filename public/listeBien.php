@@ -21,7 +21,7 @@ $title = "Les Annonces";
 require_once 'layout/header.php';
 require_once 'functions/annonce.php';
 
-$annonces = getAnnonces();
+
 ?>
 
   <div class="row">

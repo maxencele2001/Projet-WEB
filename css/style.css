@@ -1,0 +1,15 @@
+figcaption {
+    background-image: url('https://cdn.pixabay.com/photo/2016/03/05/20/13/lyon-1238710_1280.jpg');
+}
+.section {
+	position: relative;
+	height: 100vh;
+}
+
+.section-center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+}
