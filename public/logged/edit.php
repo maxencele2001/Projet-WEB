@@ -38,6 +38,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
   </div>
   <button type="submit" class="btn btn-primary">Modifier</button>
+  <a href="/admin/edit.php?id=<?php echo $voiture['ID']; ?>" class="btn btn-warning">Editer</a>
 </div>
 </form>
 

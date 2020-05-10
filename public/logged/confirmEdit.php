@@ -1,22 +1,19 @@
 <?php require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
-if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
-  $id_users = $_SESSION['user_id'];
-}
-else{
-  echo("ptit filou faut se co hehe");
-}
+require_once '../../functions/listeBien.php';
+$id_annonce = $_GET['id'];
+$uneAnnonce = getAnnonce($id_annonce);
 ?>
 
 <form method="POST" enctype="multipart/form-data">
 <div class="form-group">
     <label for="titre">Titre</label>
-    <input type="text" class="form-control" id="titre" name="titre">
+    <input type="text" class="form-control" id="titre" name="titre" value="<?php echo $uneAnnonce['titre'] ?>">
   </div>
   <div class="form-group">
     <label for="adresse">Adresse</label>
-    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse + ZIP">
+    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse + ZIP" value="<?php echo $uneAnnonce['adresse'] ?>" >
   </div>
   <div class="form-group">
     <label for="nb_voyageurs">Nombre de voyageurs</label>
@@ -45,44 +42,18 @@ else{
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+    <textarea class="form-control" id="description" name="description" rows="3" placeholder="<?php echo $uneAnnonce['description'] ?>"></textarea>
   </div>
   <div class="form-group">
     <label for="prix">Prix</label>
-    <input type="number" min="0" class="form-control" id="prix" name="prix">
+    <input type="number" min="0" class="form-control" id="prix" name="prix" value="<?php echo $uneAnnonce['prix'] ?>">
   </div>
   <div class="form-group">
-    <input type="file" id="photo" name="photo[]" multiple />
+    <input type="file" id="photo" name="photo[]" multiple/>
 </div>
 <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 <?php
-
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool
-{
-  $pdo = getPdo();// recup de ma bdd
-  
-  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users)";// formule pour l'ajout
-  $stmt = $pdo->prepare($query);
-  return $stmt->execute([
-    'titre' => $titre,
-    'adresse' => $adresse,
-    'nb_chambre' => $nb_chambre,
-    'nb_voyageurs' => $nb_voyageurs,
-    'description' => $description,
-    'photo' => $photobdd,
-    'prix' => $prix,
-    'id_users' => $id_users
-  ]);
-}
-
-
-if (!empty($_POST['titre'])){
-echo "jsuis con";
-var_dump($_POST);
-}
-
-// Fichiers multiples
 if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
     echo "oui";
     $titre = $_POST['titre'];
@@ -110,29 +81,10 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users);//gaffe foreach
+    }
+    updateAnnonce($titre, $adresse, $description, intval($nb_voyageurs), intval($nb_chambre),intval($prix), $photobdd, intval($id_annonce));
   }
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php require_once '../../layout/footer.php';
