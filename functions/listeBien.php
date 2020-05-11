@@ -128,3 +128,11 @@ function updateSoldeHote(int $solde, int $id_hote){
     'id'=>$id_hote,
   ));
 };
+
+function getCoup_Coeur(){
+  $pdo = getPdo();
+  $query = "SELECT id_annonce, COUNT(*) AS nb_reserve FROM reservation GROUP BY id_annonce HAVING nb_reserve>3 ORDER BY nb_reserve DESC LIMIT 4 ";
+  $stmt = $pdo->prepare($query);
+  $stmt = $pdo->query($query);
+  return $stmt -> fetchAll(PDO::FETCH_COLUMN);
+}
