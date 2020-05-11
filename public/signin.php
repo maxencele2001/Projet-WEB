@@ -2,37 +2,44 @@
 require_once '../functions/db.php';
 require_once '../functions/redirect.php';?>
 
-
-<form method="POST" enctype="multipart/form-data">
-    <div class="container">
-    <input type="file" name="profilePic" />
+<link rel="stylesheet" href="signUp.css"> 
+<div class="signup" method="POST" enctype="multipart/form-data"> 
+  <div class="container form">
+    <form action="#">
     <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom ..." />
-  </div>
-  <div class="form-group">
-    <label for="prenom">Prenom</label>
-    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom ..." />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" />
-  </div>
-  <div class="form-group">
-    <label for="password">Mot de passe</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe ..." />
-  </div>
-  <div class="form-group">
-    <label for="password">Confirmation mot de passe</label>
-    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirmation ..." />
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
-    <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
+      <label for="username">Photo de profil</label>
+      <input type="file" name="profilePic" class="profilPic" required/>
+    </div>
+    <div class="form-group">
+      <label for="username">Nom</label>
+      <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom ..." required />
+    </div>
+    <div class="form-group">
+      <label for="username">Prénom</label>
+      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom ..." required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required/>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe ..." required/>
+        </div>
+        <div class="form-group">
+          <label for="passwordRepeat">Confirmation de mot de passe</label>
+          <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirmation ..." required />
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
+          <label class="form-check-label" for="exampleCheck1">Je veux devenir un hôte</label>
+        </div>
+        <input class="btn btn--form" type="submit" value="Register" />
+      </form>  
+     </div>
 </div>
-</form>
+
+
 <?php
 function inscrire(string $nom,string $prenom, string $password, string $email, string $profilePic, bool $is_hote): bool
 {

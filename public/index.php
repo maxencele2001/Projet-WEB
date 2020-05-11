@@ -1,6 +1,7 @@
 <?php require_once '../layout/header.php'; ?>
-  
+
   <?php
+  /*
   var_dump($_POST); // ne contient pas les fichiers
   var_dump($_FILES);
 
@@ -20,7 +21,7 @@
       echo $filename . " correctement enregistré<br />";
     }
   }
-
+   
   // Fichiers multiples
   if (isset($_FILES['photos'])) {
     foreach ($_FILES['photos']['error'] as $key => $error) {
@@ -35,10 +36,11 @@
       }
     }
   }
-
+  */
   ?>
-
+  
   <!-- Ne pas oublier l'attribut enctype -->
+<!--
   <form method="POST" enctype="multipart/form-data">
     <input type="file" name="myFile" />
     <input type="submit" value="Envoyer" />
@@ -48,8 +50,8 @@
     <input type="file" name="photos[]" multiple />
     <input type="submit" value="Envoyer" />
   </form>
-
-  <link rel="stylesheet" href="css/style.css"> 
+  -->
+  <link rel="stylesheet" href='style.css'> 
   <figcaption class="section">
 		<div class="section-center">
 			<div class="container">
@@ -123,30 +125,6 @@
   <h3>Les coups de <i class="fas fa-heart"></i> </h3>
    
 
- <?php 
-  $annonces = getAnnonce($ville);
-var_dump($liste);
-foreach ($annonces as $annonce){
-$id_add = $annonce['id'];
-$photos = getAnnonce($id_add);
-$photo = $photos['photo'];
-$photo = explode (";", $photo);
-$photo = $photo[0]?>
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $annonce['titre'] ?> | Lyon</h5>
-        <p class="card-text"><small class="text-muted"><?php echo $annonces['nb_voyageurs']; ?> voyageurs ·  nbr lits | <?php echo $annonces['prix']; ?>€/nuit </small></p>
-        <p class="card-text"><a href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Voir</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<?php } ?>
 
 
 
