@@ -1,30 +1,33 @@
 <?php 
 require_once __DIR__ . '/db.php';
 
-function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null){
+function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null,?int $nb_voyageurs=null){
     $pdo=getPdo();
     $query = "SELECT * FROM annonces";
-    if($prixmin!== null && $prixmax !== null && $ville !== null){
-      $query .= " WHERE prix BETWEEN :prixmin AND :prixmax AND adresse LIKE :adresse";
+    if($prixmin!== null && $prixmax !== null && $ville !== null && $nb_voyageurs !== null){
+      $query .= " WHERE prix BETWEEN :prixmin AND :prixmax AND adresse LIKE :adresse AND nb_voyageurs>=:nb_voyageurs";
       $stmt = $pdo->prepare($query);
       $stmt->execute(array(
         'prixmin' => $prixmin,
         'prixmax' => $prixmax,
-        'adresse' => "%$ville%"
+        'adresse' => "%$ville%",
+        'nb_voyageurs' => $nb_voyageurs,
       ));
     }else{
-      if ($ville !== null) {
-        $query .= " WHERE nom LIKE :adresse";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute([
-          'adresse' => "%$ville%"
-        ]);
-      } else {
-        $stmt = $pdo->query($query);
-        echo("oui");
-    }
+      $stmt = $pdo->query($query);
     }
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getVille(string $ville){
+  $pdo =getPdo();
+  $query = "SELECT * FROM annonces WHERE adresse LIKE :adresse";
+  $stmt = $pdo->prepare($query);
+  $stmt -> execute([
+    'adresse' => "%$ville%",
+  ]);
+  
+  return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
 
