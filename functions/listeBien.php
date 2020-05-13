@@ -1,44 +1,47 @@
 <?php 
 require_once __DIR__ . '/db.php';
 
-function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null){
+function getListe(?int $prixmin = null,?int $prixmax = null,?string $ville=null,?int $nb_voyageurs=null){
     $pdo=getPdo();
     $query = "SELECT * FROM annonces";
-    if($prixmin!== null && $prixmax !== null && $ville !== null){
-      echo ("oui");
-      $query = $query . " WHERE prix BETWEEN ':prixmin' AND ':prixmax' AND adresse LIKE ':adresse'";
-      echo("non");
+    if($prixmin!== null && $prixmax !== null && $ville !== null && $nb_voyageurs !== null){
+      $query .= " WHERE prix BETWEEN :prixmin AND :prixmax AND adresse LIKE :adresse AND nb_voyageurs>=:nb_voyageurs";
       $stmt = $pdo->prepare($query);
       $stmt->execute(array(
         'prixmin' => $prixmin,
         'prixmax' => $prixmax,
-        'adresse' => $ville
+        'adresse' => "%$ville%",
+        'nb_voyageurs' => $nb_voyageurs,
       ));
-      #return $stmt -> fetchAll(PDO::FETCH_ASSOC);
-      #if ($ville !== null) {
-      #$query = $query . " AND nom LIKE :adresse";
-      #$stmt = $pdo->prepare($query);
-      #$stmt->execute(array(
-       #'adresse' => "%$ville%"
-       # ));
-    #}# else {
-     # $stmt = $pdo->query($query);
-    #}#contracter tous les if ensemble
     }else{
-      if ($ville !== null) {
-        $query = $query . " WHERE nom LIKE :adresse";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute(array(
-          'adresse' => "%$ville%"
-        ));
-      } else {
-        $stmt = $pdo->query($query);
+      $stmt = $pdo->query($query);
     }
-    }
-    echo("oui");
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
-    echo("non");
 }
+
+function getVille(string $ville){
+  $pdo =getPdo();
+  $query = "SELECT * FROM annonces WHERE adresse LIKE :adresse";
+  $stmt = $pdo->prepare($query);
+  $stmt -> execute([
+    'adresse' => "%$ville%",
+  ]);
+  
+  return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function verif_reserve($date,$date2){
+  $pdo=getPdo();
+  $query = "SELECT id_annonce FROM reservation WHERE :date BETWEEN arrivee AND depart OR :date2 BETWEEN arrivee AND depart";
+  $stmt = $pdo->prepare($query);
+  $stmt->execute(array(
+    'date'=>$date,
+    'date2'=> $date2
+  ));
+  return $stmt -> fetchAll(PDO::FETCH_COLUMN);
+}
+
 
 function getAnnonce(int $id): ?array
 {
@@ -128,3 +131,11 @@ function updateSoldeHote(int $solde, int $id_hote){
     'id'=>$id_hote,
   ));
 };
+
+function getCoup_Coeur(){
+  $pdo = getPdo();
+  $query = "SELECT id_annonce, COUNT(*) AS nb_reserve FROM reservation GROUP BY id_annonce HAVING nb_reserve>3 ORDER BY nb_reserve DESC LIMIT 4 ";
+  $stmt = $pdo->prepare($query);
+  $stmt = $pdo->query($query);
+  return $stmt -> fetchAll(PDO::FETCH_COLUMN);
+}
