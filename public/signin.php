@@ -2,7 +2,7 @@
 require_once '../functions/db.php';
 require_once '../functions/redirect.php';?>
 
-
+<link rel="stylesheet" href='css/signUp.css'> 
 <form method="POST" enctype="multipart/form-data">
     <div class="container">
     <input type="file" name="profilePic" />
