@@ -51,7 +51,7 @@
     <input type="submit" value="Envoyer" />
   </form>
   -->
-  <link rel="stylesheet" href='style.css'> 
+  <link rel="stylesheet" href='css/style.css'> 
   <figcaption class="section">
 		<div class="section-center">
 			<div class="container">
