@@ -97,13 +97,13 @@ require_once '../functions/db.php'; ?>
   <div class="card-deck">
       <div class="card">
 	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
-	  <button type="button" class="btn btn-light" > <a href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" class="btn btn-warning"></a>
+	  <a type="button" class="btn btn-light"href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" class="btn btn-warning">
           <div class="card-body">
             <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
             <p class="card-text">Lyon</p>
             <p class="card-text"><small class="text-muted"><?php echo $annonce_coeur['nb_voyageurs'] ?> voyageurs | <?php echo $annonce_coeur['nb_chambre'] ?> chambres</small></p>
           </div>
-        </button>
+       </a>
       </div>
      
     </div>
