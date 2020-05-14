@@ -28,7 +28,7 @@ require_once '../functions/redirect.php';?>
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
-    <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
+    <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
   </div>
   <button type="submit" class="btn btn-primary">Enregistrer</button>
 </div>
