@@ -4,7 +4,7 @@ require_once '../functions/redirect.php';?>
 
 <link rel="stylesheet" href='css/signUp.css'> 
 <form method="POST" enctype="multipart/form-data">
- <div class="signup">
+ 
     <div class="container">
       <div class="form-group">
         <label for="nom">Votre photo de profil</label>
@@ -33,9 +33,9 @@ require_once '../functions/redirect.php';?>
         <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
         <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
       </div>
-      <button type="submit" class="btn btn-primary">Enregistrer</button>
+      <button type="submit" class="btn">Enregistrer</button>
     </div>
-  </div>
+  
 </form>
 <?php
 function inscrire(string $nom,string $prenom, string $password, string $email, string $profilePic, bool $is_hote): bool

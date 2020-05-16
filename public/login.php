@@ -31,8 +31,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
   }
 }
 ?>
-<h1>Connexion</h1>
-<h4>Mets les bons identifiants bogoss</h4>
+
+
 
 <?php if ($verif) { ?>
   <div class="alert alert-danger" role="alert">
@@ -42,15 +42,20 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
 <?php } ?>
 
 <form method="POST">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Email ..."/>
+  <div class="container">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email ..."/>
+   </div>
+   <div class="form-group">
+     <label for="password">Mot de passe</label>
+     <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe..." />
+   </div>
+   <button type="submit" class="btn">Connexion</button>
   </div>
-  <div class="form-group">
-    <label for="password">Mot de passe</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe..." />
-  </div>
-  <button type="submit" class="btn btn-primary">Connexion</button>
 </form>
+
+<link rel="stylesheet" href='css/login.css'> 
+
 
 <?php require_once '../layout/footer.php'; ?>
