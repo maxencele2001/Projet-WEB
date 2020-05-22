@@ -5,7 +5,6 @@ require_once '../functions/redirect.php';?>
 <link rel="stylesheet" href='css/signUp.css'> 
 <form method="POST" enctype="multipart/form-data">
  
-    <div class="container">
       <div class="form-group">
         <label for="nom">Votre photo de profil</label>
         <input type="file" name="profilePic" />
@@ -34,7 +33,7 @@ require_once '../functions/redirect.php';?>
         <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
       </div>
       <button type="submit" class="btn">Enregistrer</button>
-    </div>
+
   
 </form>
 <?php

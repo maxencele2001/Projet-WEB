@@ -5,11 +5,14 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
   $id_users = $_SESSION['user_id'];
 }
 else{
-  echo("ptit filou faut se co hehe");
+  echo("Connectez vous pour créer une annonce");
 }
 ?>
 
+<link rel="stylesheet" href='css/addAnnonce.css'> 
+
 <form method="POST" enctype="multipart/form-data">
+
 <div class="form-group">
     <label for="titre">Titre</label>
     <input type="text" class="form-control" id="titre" name="titre">
@@ -41,6 +44,9 @@ else{
       <option>3</option>
       <option>4</option>
       <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
     </select>
   </div>
   <div class="form-group">
@@ -52,10 +58,20 @@ else{
     <input type="number" min="0" class="form-control" id="prix" name="prix">
   </div>
   <div class="form-group">
+    <label for="photo">Photos</label>
     <input type="file" id="photo" name="photo[]" multiple />
 </div>
-<button type="submit" class="btn btn-primary">Enregistrer</button>
+<button type="submit" class="btn">Enregistrer</button>
 </form>
+
+
+
+
+
+
+
+
+
 <?php
 
 function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool

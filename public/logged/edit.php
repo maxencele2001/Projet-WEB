@@ -35,10 +35,10 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
-    <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
+    <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
   </div>
   <button type="submit" class="btn btn-primary">Modifier</button>
-  <a href="/admin/edit.php?id=<?php echo $voiture['ID']; ?>" class="btn btn-warning">Editer</a>
+  <a href="/admin/edit.php?id=<?php echo $id['ID']; ?>" class="btn">Editer</a>
 </div>
 </form>
 
