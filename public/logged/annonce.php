@@ -74,14 +74,15 @@ else{
 
 <?php
 
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool
+function addAnnonce(string $titre,string $type,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool
 {
   $pdo = getPdo();// recup de ma bdd
   
-  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users)";// formule pour l'ajout
+  $query = "INSERT INTO annonces (titre, type, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users) VALUES (:titre, :type, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users)";// formule pour l'ajout
   $stmt = $pdo->prepare($query);
   return $stmt->execute([
     'titre' => $titre,
+    'type' => $type,
     'adresse' => $adresse,
     'nb_chambre' => $nb_chambre,
     'nb_voyageurs' => $nb_voyageurs,
@@ -99,9 +100,10 @@ var_dump($_POST);
 }
 
 // Fichiers multiples
-if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
+if(isset($_POST['titre']) && isset($_POST['type']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['type']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
     echo "oui";
     $titre = $_POST['titre'];
+    $type = $_POST['type'];
     $adresse = $_POST['adresse'];
     $nb_chambre = $_POST['nb_chambre'];
     $nb_voyageurs = $_POST['nb_voyageurs'];
@@ -126,7 +128,7 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users);//gaffe foreach
+    }addAnnonce($titre, $type, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users);//gaffe foreach
   }
 }
 

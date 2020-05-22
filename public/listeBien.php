@@ -1,5 +1,7 @@
 <?php //faire un foreach de tous les biens et mettre la card entiere en href plus pratique
-require_once '../functions/listeBien.php';?>
+require_once '../functions/listeBien.php';
+require_once '../layout/header.php';
+?>
 
 
 
@@ -13,6 +15,7 @@ require_once '../functions/listeBien.php';?>
 <input type="number" name="nb_voyageurs" id="nb_voyageurs" min="0">
 <input type="submit" value="Envoyer" />
 </form>
+
 
 
 
@@ -66,18 +69,19 @@ $photos = getAnnonce($id_add);
 $photo = $photos['photo'];
 $photo = explode (";", $photo);
 $photo = $photo[0]?>
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-        <p class="card-text"><?php echo $annonce['adresse'] ?></p>
-        <p class="card-text"><a href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Voir</a></p>
-      </div>
-    </div>
+
+
+<link rel="stylesheet" href="listeannonces.css"> 
+
+
+<div class="card" style="width: 18rem;">
+  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+    <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
   </div>
 </div>
+
 <?php } 
+
+?>

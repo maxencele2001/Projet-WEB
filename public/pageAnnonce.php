@@ -95,14 +95,6 @@ function dateDiff(date, date2){
 
 
 
-  <form method="POST">
-  <input class="form-control" type="date" name="date" id="date" value="<?php echo date("Y-m-d") ?>">
-  <input class="form-control" type="date" name="date2" id="date2" value="<?php echo (new DateTime('+1 day'))->format('Y-m-d');?>">
-  <input type="number" name="voyageurs" id="voyageurs" value="1" min="1" max="<?php echo $max_voyageurs?>">
-  <label for="prix_total">Prix total</label><input type="text" name="prix_total" id="prix_total" value="<?php echo $prix_annonce ?>" readonly>
-  <input type="submit" value="Envoyer" />
-  </form>
-
 
 <?php if (!isset($_GET['id'])) { ?>
   <div class="alert alert-danger" role="alert">
@@ -186,6 +178,86 @@ foreach($photos as $photo){
 //$i = count($photos);
 
 ?>
+<link rel="stylesheet" href="../css/annonce.css"> 
+<section class="titre">
+        <h3><?php echo $uneAnnonce['titre'] ?></h3>
+        
+    </section>
+    <section class="card-deck">
+       
+    </section>
+    <section class="body">
+
+      <section class="description">
+        <article class="info" >
+            <div class="caractéristique">
+              <h3><?php echo $uneAnnonce['type'] ?> </h3>
+              <p><?php echo $uneAnnonce['nb_voyageurs'] ?> voyageurs · <?php echo $uneAnnonce['nb_chambre'] ?> chambre</p>
+            </div>
+            
+        </article>
+        <hr>
+        <article>
+            <h4>Description du bien</h4>
+            <p><?php echo $uneAnnonce['description'] ?></p>
+        </article>
+        
+      </section>
+      <section class="réservation">
+        <article>
+            <div>
+              <h3>Modalité de réservation</h3>
+              <h4><?php echo $uneAnnonce['prix'] ?>€ la nuit / personne</h4>
+            </div>   
+        </article>
+        <form method="POST">
+          <div class="col-sm-14">
+            <div class="form-group">
+              <span class="form-label">Voyageurs</span>
+              <input class="form-control" type="number" name="voyageurs" id="voyageurs" value="1" min="1" max="<?php echo $max_voyageurs?>">
+            <span class="select-arrow"></span>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="form-label">Arrivée</span>
+                    <input class="form-control" type="date" name="date" id="date" value="<?php echo date("Y-m-d") ?>" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="form-label">Départ</span>
+                    <input class="form-control" type="date" name="date2" id="date2" value="<?php echo (new DateTime('+1 day'))->format('Y-m-d');?>" required>
+                </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+              <span class="form-label">Prix total</span>
+              <input class="form-control" type="text" name="prix_total" id="prix_total" value="<?php echo $prix_annonce ?>" readonly>
+            </div>
+          </div>
+            
+          </div>
+          <div class="form-btn">
+          <button class="submit-btn" type="submit" value="Envoyer">Réservez</button>
+          </div>
+         </section>
+      </form>
+
+
+    </section>
+     
+    <section>
+        <hr>
+        <h2>Localisation</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5567.478026615343!2d4.829194074663444!3d45.75637790206292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea52244ab879%3A0xb0956981fd027394!2sBellecour%20-%20H%C3%B4tel%20Dieu%2C%20Lyon!5e0!3m2!1sfr!2sfr!4v1586881042197!5m2!1sfr!2sfr"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </section>
+
+
+</body>
+
+
 
 
 
