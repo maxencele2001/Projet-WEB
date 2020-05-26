@@ -71,17 +71,19 @@ $photo = explode (";", $photo);
 $photo = $photo[0]?>
 
 
-<link rel="stylesheet" href="listeannonces.css"> 
+<link rel="stylesheet" href="../css/listeBien.css"> 
 
-
-<div class="card" style="width: 18rem;">
-  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-  <div class="card-body">
-    <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-    <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
-  </div>
+<div class="annnonce">
+<div class="card mb-3">
+	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+	  <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+          <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
+		</div>
+	  </a>
+    </div>
 </div>
-
 <?php } 
 
 ?>

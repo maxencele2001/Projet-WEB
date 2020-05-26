@@ -1,10 +1,9 @@
 <?php require_once '../layout/header.php'; 
-require_once '../functions/db.php'; ?>
-<?php require_once '../functions/listeBien.php'; ?>
-
-
-  
-  <link rel="stylesheet" href='css/style.css'> 
+require_once '../functions/db.php'; 
+require_once '../functions/listeBien.php';
+$title = "Accueil";
+?>
+<link rel="stylesheet" href= "css/style.css" >
   <figcaption class="section">
 		<div class="section-center">
 			<div class="container">
@@ -78,37 +77,19 @@ require_once '../functions/db.php'; ?>
     $photo = $annonce_coeur['photo'];
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-        <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
-            <p class="card-text"><?php echo $annonce_coeur['adresse'] ?></p>
-            <p class="card-text"><a href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" class="btn btn-warning">Voir</a></p>
-          </div>
-        </div>
-      </div>
+    
+	<div class="card mb-3">
+	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+	  <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
+          <p class="card-text"><small class="text-muted"><?php echo $annonce_coeur['nb_voyageurs'] ?> voyageurs · <?php echo $annonce_coeur['nb_chambre'] ?> lits | <?php echo $annonce_coeur['prix'] ?>€/nuit </small></p>
+		</div>
+	  </a>
     </div>
   <?php } ?>
 
-  <div class="card-deck">
-      <div class="card">
-	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
-	  <a type="button" class="btn btn-light"href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" class="btn btn-warning">
-          <div class="card-body">
-            <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
-            <p class="card-text">Lyon</p>
-            <p class="card-text"><small class="text-muted"><?php echo $annonce_coeur['nb_voyageurs'] ?> voyageurs | <?php echo $annonce_coeur['nb_chambre'] ?> chambres</small></p>
-          </div>
-       </a>
-      </div>
-     
-    </div>
-
-
+  
 </body>
 
 </html>

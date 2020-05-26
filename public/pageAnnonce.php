@@ -158,7 +158,7 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
         mail($mail_hote,$subject,$message_hote);
         mail($mail_client,$subject,$message_client);
       }else{
-        echo ("t pauvre mon bonhomme");
+        echo ("Manque d'argent sur votre compte");
       }
     }else{
     echo("déja réservé");

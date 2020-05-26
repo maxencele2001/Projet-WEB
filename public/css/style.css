@@ -1,5 +1,6 @@
 figcaption {
 	background-image: url('https://cdn.pixabay.com/photo/2019/08/08/11/04/lyon-4392678_1280.jpg');
+	background-size: cover;
   }
   
   .section {

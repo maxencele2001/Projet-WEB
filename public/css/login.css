@@ -1,12 +1,15 @@
 body {
-    background-image: url('https://cdn.pixabay.com/photo/2019/04/03/19/50/lyon-4101256_1280.jpg');
-    
-  }
+  background-image: url('https://cdn.pixabay.com/photo/2019/04/03/19/50/lyon-4101256_1280.jpg');
+  background-size: cover;
+}
 
   form {
     padding: 2.5rem;
     background: rgb(255, 255, 255);
     width: 50%;
+    display: block;
+    margin: auto;
+   
   }
   label {
     font-size: .85rem;
