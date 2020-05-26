@@ -179,17 +179,14 @@ foreach($photos as $photo){
 
 ?>
 <link rel="stylesheet" href="../css/annonce.css"> 
-<section class="titre">
-        <h3><?php echo $uneAnnonce['titre'] ?></h3>
-        
-    </section>
-    <section class="card-deck">
-       
-    </section>
-    <section class="body">
+
+  
+  <section class="body">
 
       <section class="description">
+      <h3><?php echo $uneAnnonce['titre'] ?></h3>
         <article class="info" >
+        
             <div class="caractéristique">
               <h3><?php echo $uneAnnonce['type'] ?> </h3>
               <p><?php echo $uneAnnonce['nb_voyageurs'] ?> voyageurs · <?php echo $uneAnnonce['nb_chambre'] ?> chambre</p>

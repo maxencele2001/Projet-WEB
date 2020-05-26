@@ -19,7 +19,8 @@ section{
     height:90px;
 }
 body{
-    background-image: url("https://iphonesoft.fr/images/_072017/blur-flou-wallpaper-fond-ecran-iphone-retina-2.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/21/architecture-768432_1280.jpg");
+    background-size: cover;
 }
 .card-header {
     display: flex;

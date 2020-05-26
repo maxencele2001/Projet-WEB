@@ -4,17 +4,30 @@ require_once '../layout/header.php';
 ?>
 
 
+<form method="POST" class="recherche">
 
+  <div class="input-group input-group-lg">
 
-<form method="POST">
-<input class="form-control" type="date" name="date">
-<input class="form-control" type="date" name="date2">
-<input type="text" name="ville" id="ville">
-<input type="number" name="prixmin" id="prixmin" min="0">
-<input type="number" name="prixmax" id="prixmax" min="0">
-<input type="number" name="nb_voyageurs" id="nb_voyageurs" min="0">
-<input type="submit" value="Envoyer" />
+    <div class="input-group-prepend">
+ 
+      <span class="input-group-text" id="inputGroup-sizing-default">Pix Min</span>
+      <input type="number" name="prixmin" id="prixmin" min="0">
+
+      <span class="input-group-text" id="inputGroup-sizing-default">Prix Max</span>
+      <input type="number" name="prixmax" id="prixmax" min="0">
+
+     <span class="input-group-text" id="inputGroup-sizing-default">Voyageurs</span>
+     <input type="number" name="nb_voyageurs" id="nb_voyageurs" min="0">
+
+     <input type="submit" value="Envoyer" class="btn btn-dark" />
+  
+    </div>
+
+  </div>
+
 </form>
+
+
 
 
 
@@ -73,17 +86,17 @@ $photo = $photo[0]?>
 
 <link rel="stylesheet" href="../css/listeBien.css"> 
 
-<div class="annnonce">
-<div class="card mb-3">
-	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	  <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-          <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
+
+<div class="card mb-3" style="width: 20em;">
+	<?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+      <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
 		</div>
-	  </a>
-    </div>
+	</a>
 </div>
+
 <?php } 
 
 ?>

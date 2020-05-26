@@ -1,13 +1,14 @@
 .card-img-top {
     margin:auto;
-    height:18vw;
     display:block;
 }
-.card {
+
+.recherche {
     margin: 1em;
-    height: 30%;
-    width: 30%;
+    margin-left: 6em;
 }
-.card-deck {
-    margin: 1em;
+
+.card {
+    display: block;
+    margin: auto;
 }

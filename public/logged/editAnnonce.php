@@ -12,20 +12,24 @@ foreach ($myAnnonce as $annonce){
     $photo = $photos['photo'];
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-        <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
+
+    <link rel="stylesheet" href= "../css/editAnnonce.css" >
+    
+
+    <div class="card mb-3" style="width: 18rem;">
+	    <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+	    <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+          <p class="card-text"><?php echo $annonce['adresse'] ?></p>
+          <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-            <p class="card-text"><?php echo $annonce['adresse'] ?></p>
-            <p class="card-text"><a href="../confirmEdit.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Modifier</a></p>
-            <p class="card-text"><a href="../suppr.php?id=<?php echo $annonce['id']; ?>" class="btn btn-alert">Supprimer</a></p>
-          </div>
-        </div>
-      </div>
+      </a>
+        <p class="link">
+          <a href="../confirmEdit.php?id=<?php echo $annonce['id']; ?>" class="btn btn-dark">Modifier</a>
+          <a href="../suppr.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Supprimer</a>
+        </p>
+      
     </div>
 <?php }
 require_once '../../layout/footer.php'; ?>

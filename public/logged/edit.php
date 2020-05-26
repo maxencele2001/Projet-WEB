@@ -19,6 +19,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
 }
 ?>
 
+
 <form method="POST">
     <div class="container">
   <div class="form-group">
@@ -37,9 +38,11 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
     <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
   </div>
-  <button type="submit" class="btn btn-primary">Modifier</button>
-  <a href="/admin/edit.php?id=<?php echo $id['ID']; ?>" class="btn">Editer</a>
+  <button type="submit" class="btn btn-dark">Modifier</button>
+  <a href="/admin/edit.php?id=<?php echo $id['ID']; ?>" class="btn btn-dark">Editer</a>
 </div>
 </form>
+
+<link rel="stylesheet" href='../css/edit.css'> 
 
 <?php require_once '../../layout/footer.php';
