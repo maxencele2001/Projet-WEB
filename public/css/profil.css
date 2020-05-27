@@ -1,11 +1,10 @@
-.card-img {
-    margin:auto;
-    height:18vw;
-    display:block;
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/21/architecture-768432_1280.jpg");
+    background-size: cover;
 }
 section{
-    margin: 15em;
-    margin-left: 20em;
+    
+    margin: 10em;
    
 }
 
@@ -18,10 +17,7 @@ section{
     width:90px;
     height:90px;
 }
-body{
-    background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/21/architecture-768432_1280.jpg");
-    background-size: cover;
-}
+
 .card-header {
     display: flex;
     justify-content: space-between;
