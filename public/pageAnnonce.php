@@ -157,23 +157,31 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
         updateSoldeClient($solde_client,$id_users);
         mail($mail_hote,$subject,$message_hote);
         mail($mail_client,$subject,$message_client);
-      }else{
-        echo ("Manque d'argent sur votre compte");
+      }else{?>
+        <div class="alert alert-danger" role="alert">
+        <?php echo ("Manque d'argent sur votre compte");?>
+        </div> <?php
       }
-    }else{
-    echo("déja réservé");
-    #var_dump($verif);
+    }else{ ?>
+      <div class="alert alert-danger" role="alert">
+      <?php echo("déja réservé");
+      #var_dump($verif); ?>
+      </div> <?php
     } 
   }
-}else{
-  echo("Connectez vous pour réserver");
+}else{ ?>
+  <div class="alert alert-danger" role="alert">
+  <?php echo("Connectez vous pour réserver");?>
+  </div> <?php
 }
+
 
 
 $photos = $uneAnnonce['photo'];
 $photos = explode (";", $photos);
-foreach($photos as $photo){
-    echo "<img src='img/annonce/".$photo."' alt='".$photo."'/>";
+foreach($photos as $photo){ 
+   echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' style='width: 20rem;'/>"; 
+  
 }
 //$i = count($photos);
 
@@ -184,11 +192,10 @@ foreach($photos as $photo){
   <section class="body">
 
       <section class="description">
-      <h3><?php echo $uneAnnonce['titre'] ?></h3>
         <article class="info" >
         
             <div class="caractéristique">
-              <h3><?php echo $uneAnnonce['type'] ?> </h3>
+              <h3><?php echo $uneAnnonce['titre'] ?></h3>
               <p><?php echo $uneAnnonce['nb_voyageurs'] ?> voyageurs · <?php echo $uneAnnonce['nb_chambre'] ?> chambre</p>
             </div>
             

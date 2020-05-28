@@ -78,6 +78,7 @@ $title = "Accueil";
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
     
+ 	
 	<div class="card mb-3" style="width: 18rem;">
 	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
 	  <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 18rem;">

@@ -5,7 +5,11 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
   $id_users = $_SESSION['user_id'];
 }
 else{
-  echo("Connectez vous pour créer une annonce");
+  ?>
+  <div class="alert alert-danger" role="alert">
+
+  <?php echo("Connectez vous pour créer une annonce");?>
+  </div> <?php
 }
 ?>
 
