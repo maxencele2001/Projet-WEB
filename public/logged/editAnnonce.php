@@ -13,12 +13,12 @@ foreach ($myAnnonce as $annonce){
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
 
-    <link rel="stylesheet" href= "../css/editAnnonce.css" >
+    <link rel="stylesheet" href="../css/editAnnonce.css" >
     
 
     <div class="card mb-3" style="width: 18rem;">
 	    <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	    <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>">
+	    <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>">
         <div class="card-body">
           <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
           <p class="card-text"><?php echo $annonce['adresse'] ?></p>

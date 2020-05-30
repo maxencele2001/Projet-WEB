@@ -10,7 +10,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     $email = $_POST['email'];
     $password = $_POST['password'];
     $is_hote = $_POST['is_hote'];
-    updateProfil($id, $email, $password, $is_hote);
+    updateProfil($id, $password, $email,  $is_hote);
 }else{?>
     <div class="alert alert-danger" role="alert">
       Mots de passe différents
@@ -39,10 +39,9 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
   </div>
   <button type="submit" class="btn btn-dark">Modifier</button>
-  <a href="/admin/edit.php?id=<?php echo $id['ID']; ?>" class="btn btn-dark">Editer</a>
 </div>
 </form>
 
-<link rel="stylesheet" href='../css/edit.css'> 
+<link rel="stylesheet" href='css/edit.css'> 
 
 <?php require_once '../../layout/footer.php';

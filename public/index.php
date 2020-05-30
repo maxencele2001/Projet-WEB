@@ -71,7 +71,7 @@ $title = "Accueil";
 
   <?php 
   $coupcoeur=getCoup_Coeur();
-  var_dump($coupcoeur);
+  #var_dump($coupcoeur);
   foreach($coupcoeur as $annoncepref){
     $annonce_coeur = getAnnonce($annoncepref);
     $photo = $annonce_coeur['photo'];

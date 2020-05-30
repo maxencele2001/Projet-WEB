@@ -73,10 +73,6 @@ else{
 
 
 
-
-
-
-
 <?php
 
 function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool

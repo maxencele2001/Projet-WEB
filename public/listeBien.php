@@ -86,16 +86,24 @@ $photo = $photo[0]?>
 
 <link rel="stylesheet" href="../css/listeBien.css"> 
 
-
-<div class="card mb-3" style="width: 20em;">
-	<?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width: 20rem;">
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-      <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
-		</div>
-	</a>
+<div class="card mb-4" style="max-width: 900px;">
+  <div class="card-deck">
+    <div style="width:300px">
+      <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' />" ; ?>
+    </div>
+    <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:612px";>
+      <div >
+        <div class="card-body">
+          <h5 class="card-title"><h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+          <p class="card-text"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit</p>
+          <p class="card-text"><small class="text-muted"><?php echo $annonce['description'] ?></small></p>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
+
+
 
 <?php } 
 
