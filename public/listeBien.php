@@ -63,7 +63,7 @@ if(!empty($_POST['prixmin']) && !empty($_POST['prixmax']) && !empty($_POST['nb_v
   if(isset($_POST['ville'])){
     $ville = $_POST['ville'];
     $liste=getVille($ville);
-    var_dump($liste);
+    #var_dump($liste);
     echo("ouicmoi");
   }
   else{
@@ -95,8 +95,8 @@ $photo = $photo[0]?>
       <div >
         <div class="card-body">
           <h5 class="card-title"><h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-          <p class="card-text"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit</p>
-          <p class="card-text"><small class="text-muted"><?php echo $annonce['description'] ?></small></p>
+          <p class="card-text"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lit | <?php echo $annonce['prix'] ?>€/nuit</p>
+          
         </div>
       </div>
     </a>
