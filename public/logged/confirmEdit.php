@@ -45,6 +45,10 @@ $uneAnnonce = getAnnonce($id_annonce);
     <textarea class="form-control" id="description" name="description" rows="3" placeholder="<?php echo $uneAnnonce['description'] ?>"></textarea>
   </div>
   <div class="form-group">
+    <label for="localisation">Localisation</label>
+    <input  class="form-control" id="localisation" name="localisation">
+  </div>
+  <div class="form-group">
     <label for="prix">Prix</label>
     <input type="number" min="0" class="form-control" id="prix" name="prix" value="<?php echo $uneAnnonce['prix'] ?>">
   </div>
@@ -54,7 +58,7 @@ $uneAnnonce = getAnnonce($id_annonce);
 <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 <?php
-if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
+if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['localisation']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['localisation'])){
     echo "oui";
     $titre = $_POST['titre'];
     $adresse = $_POST['adresse'];
@@ -62,6 +66,7 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
     $nb_voyageurs = $_POST['nb_voyageurs'];
     $description = $_POST['description'];
     $prix = $_POST['prix'];
+    $localisation = $_POST['localisation'];
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])){
       echo "photo";
       $photobdd = "";
@@ -82,7 +87,7 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
         }
       }
     }
-    updateAnnonce($titre, $adresse, $description, intval($nb_voyageurs), intval($nb_chambre),intval($prix), $photobdd, intval($id_annonce));
+    updateAnnonce($titre, $adresse, $description, intval($nb_voyageurs), intval($nb_chambre),intval($prix), $photobdd, intval($id_annonce), $localisation);
   }
 }
 

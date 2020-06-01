@@ -180,7 +180,7 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
 $photos = $uneAnnonce['photo'];
 $photos = explode (";", $photos);
 foreach($photos as $photo){ 
-   echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' style='width: 20rem;'/>"; 
+   echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' style='width: 18rem;'/>"; 
   
 }
 //$i = count($photos);
@@ -255,7 +255,7 @@ foreach($photos as $photo){
     <section>
         <hr>
         <h2>Localisation</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5567.478026615343!2d4.829194074663444!3d45.75637790206292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea52244ab879%3A0xb0956981fd027394!2sBellecour%20-%20H%C3%B4tel%20Dieu%2C%20Lyon!5e0!3m2!1sfr!2sfr!4v1586881042197!5m2!1sfr!2sfr"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <?php echo $uneAnnonce['localisation'] ?>
     </section>
 
 
