@@ -2,20 +2,20 @@ body {
     background-image: url('https://cdn.pixabay.com/photo/2017/07/03/13/58/architecture-2467770_1280.jpg');
     background-size: cover;
     
-  }
+}
   
-  form {
+.form {
     padding: 2.5rem;
     background: rgb(255, 255, 255);
     width: 50%;
     display: block;
     margin: auto;
-  }
-  .btn {
+}
+.btn {
     display: block;
     margin: auto;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.822);
     background: rgb(0, 0, 0);
-  }
+}
   

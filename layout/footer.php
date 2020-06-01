@@ -5,8 +5,9 @@
 </body>
 
 <footer>
-<div class="copyright">
-    <p>&copy 2020 - Projet étudiants </p>
-  </div>
+<div class="alert alert-light" role="alert">
+&copy 2020 - Projet étudiants 
+</div>
+
 </footer>
 </html>

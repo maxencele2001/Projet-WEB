@@ -18,9 +18,9 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
   }  
 }
 ?>
+<link rel="stylesheet" href="../css/edit.css"> 
 
-
-<form method="POST">
+<form method="POST" class="form">
     <div class="container">
   <div class="form-group">
     <label for="email">Email</label>
@@ -42,6 +42,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
 </div>
 </form>
 
-<link rel="stylesheet" href='css/edit.css'> 
+
 
 <?php require_once '../../layout/footer.php';
