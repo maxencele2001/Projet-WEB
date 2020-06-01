@@ -67,13 +67,12 @@ function getMyAnnonce(int $id_users):array{
   return $stmt->fetchAll(PDO::FETCH_ASSOC); 
 }
 
-function updateAnnonce(string $titre,string $type,string $adresse,string $description,int $nb_voyageurs,int $nb_chambre,int $prix,string $photobdd,int $id_annonce, string $localisation ) {
+function updateAnnonce(string $titre,string $adresse,string $description,int $nb_voyageurs,int $nb_chambre,int $prix,string $photobdd,int $id_annonce, string $localisation ) {
   $pdo=getPdo();
-  $query= "UPDATE annonces SET titre=:titre, type=:type, adresse=:adresse, description=:description, localisation=:localisation, nb_voyageurs=:nb_voyageurs, nb_chambre=:nb_chambre, prix=:prix, photo=:photo WHERE id=:id;";
+  $query= "UPDATE annonces SET titre=:titre, adresse=:adresse, description=:description, localisation=:localisation, nb_voyageurs=:nb_voyageurs, nb_chambre=:nb_chambre, prix=:prix, photo=:photo WHERE id=:id;";
   $stmt = $pdo->prepare($query);
     return $stmt->execute(array(
     'titre' => $titre,
-    'tupe' => $type,
     'adresse' => $adresse,
     'description' => $description,  
     'nb_voyageurs' => $nb_voyageurs,

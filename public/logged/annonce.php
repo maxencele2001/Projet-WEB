@@ -1,6 +1,7 @@
 <?php require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
+require_once '../../functions/redirect.php';
 if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
   $id_users = $_SESSION['user_id'];
 }
@@ -99,10 +100,6 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
 }
 
 
-if (!empty($_POST['titre'])){
-echo "Erreur";
-#var_dump($_POST);
-}
 
 // Fichiers multiples
 if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['localisation']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['localisation'])){
@@ -115,7 +112,6 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
     $prix = $_POST['prix'];
     $localisation = $_POST['localisation'];
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])){
-      echo "photo";
       $photobdd = "";
     foreach ($_FILES['photo']['error'] as $key => $error) {
       if ($error == UPLOAD_ERR_OK) {
@@ -133,7 +129,8 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users, $localisation);//gaffe foreach
+    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users, $localisation);
+    //redirect('../editAnnonce.php');
   }
 }
 
