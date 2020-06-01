@@ -3,12 +3,17 @@
     display:block;
 }
 
-.recherche {
-    margin: 1em;
-    margin-left: 6em;
+
+.input-group {
+    margin: auto;
 }
 
-.card {
+.card-img {
     display: block;
     margin: auto;
+    height: 100%;
+}
+
+.btn {
+    margin-left: 0.5em;
 }
