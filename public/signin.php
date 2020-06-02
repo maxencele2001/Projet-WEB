@@ -1,8 +1,10 @@
-<?php require_once '../layout/header.php'; 
+<?php 
+$title = "Inscription";
+$css = "css/signUp.css";
+require_once '../layout/header.php'; 
 require_once '../functions/db.php';
 require_once '../functions/redirect.php';?>
 
-<link rel="stylesheet" href='css/signUp.css'> 
 <form method="POST" enctype="multipart/form-data">
  
       <div class="form-group">

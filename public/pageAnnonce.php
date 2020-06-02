@@ -1,4 +1,7 @@
-<?php require_once '../layout/header.php'; 
+<?php 
+$title = "Annonce";
+$css = "../css/annonce.css";
+require_once '../layout/header.php'; 
 require_once '../functions/reservation.php'; 
 
 
@@ -12,9 +15,6 @@ foreach($photos as $photo){
 
 ?>
 
-<link rel="stylesheet" href="../css/annonce.css"> 
-
-  
   <section class="body">
     <section class="description">
       <article class="info" >

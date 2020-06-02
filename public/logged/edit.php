@@ -1,4 +1,6 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Editer votre profil";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 ?>
@@ -18,7 +20,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
   }  
 }
 ?>
-<link rel="stylesheet" href="../css/edit.css"> 
 
 <form method="POST" class="form">
     <div class="container">

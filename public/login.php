@@ -1,4 +1,6 @@
 <?php
+$title = "Connexion";
+$css ="css/login.css";
 session_start(); // formule pour initialiser une session
 require_once '../layout/header.php';
 require_once '../functions/db.php';
@@ -55,7 +57,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
   </div>
 </form>
 
-<link rel="stylesheet" href='css/login.css'> 
+
 
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

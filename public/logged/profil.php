@@ -1,11 +1,12 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Votre profil";
+$css = "../css/profil.css";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 
 $id = $_SESSION['user_id'];
 $profil = getProfil($id); ?>
-
-<link rel="stylesheet" href="../css/profil.css"> 
 
 <div class="card mb-3" style="max-width: 100%;">
   <div class="row no-gutters">

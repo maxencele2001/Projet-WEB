@@ -1,4 +1,6 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Editer votre annonce";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 require_once '../../functions/listeBien.php';
@@ -13,7 +15,6 @@ foreach ($myAnnonce as $annonce){
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
 
-    <link rel="stylesheet" href="../css/editAnnonce.css" >
     
 
 <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:620px";>

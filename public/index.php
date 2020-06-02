@@ -1,9 +1,12 @@
-<?php require_once '../layout/header.php'; 
+<?php
+$title = "LOC'Y le site de location";
+$css = "css/style.css";
+require_once '../layout/header.php'; 
 require_once '../functions/db.php'; 
 require_once '../functions/listeBien.php';
-$title = "Accueil";
+
 ?>
-<link rel="stylesheet" href= "css/style.css" >
+
   <figcaption class="section">
 		<div class="section-center">
 			<div class="container">

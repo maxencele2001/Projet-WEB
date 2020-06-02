@@ -1,4 +1,7 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Je créer mon annonce";
+$css = "../css/addAnnonce.css";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 require_once '../../functions/redirect.php';
@@ -13,8 +16,6 @@ else{
   </div> <?php
 }
 ?>
-
-<link rel="stylesheet" href='../css/addAnnonce.css'> 
 
 <form method="POST" enctype="multipart/form-data">
 
