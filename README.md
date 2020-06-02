@@ -16,28 +16,28 @@ Ce dépot concerne l'équipe 03.
 
 ## Pour commencer
 
-Vous trouverez dans se dossier le site web parti programmation réalisé en PHP, HTML et CSS
+Vous trouverez dans ce dossier le site web avec la partie programmation réalisée en PHP, HTML et CSS
 
-Il contient 3 sous dossier :
+Il contient 3 sous dossiers :
 
 - functions (contient les fonctions principales)
-- layout (les élément a importer comme le header le footer et la nav)
+- layout (les éléments à importer comme le header le footer et la nav)
 - public (contient les pages visibles et leurs contenus comme les images et le css)
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer c'est d'avoir le fichier .sql. Ce site est relieé a une base de données, pour utiliser plainement le site et ses fonctionnalitées il faut avec le fichier SQL :
+Ce qu'il est requis pour commencer c'est d'avoir le fichier .sql. Ce site est relié a une base de données, pour utiliser pleinement le site et ses fonctionnalités, il faut avec le fichier SQL :
 
 - Utiliser Mysql ( utilisable avec WampServer -> phpMyAdmin -> MySQL)
-- Avoir créer un utilisateur et un mdp suivant les idications écrite dans function>bd.php
-- CRéer un utilisateur en lui attribuant une bdd a son nom d'on il a tout les droits.
+- Avoir créé un utilisateur et un mdp suivant les indications écrites dans function>db.php
+- Créer un utilisateur en lui attribuant une bdd a son nom dont il a tous les droits.
 - importer le fichier SQL dans cette base de données.
 
 
 ## Démarrage
 
 Le démarrage du projet demande d'être sur un éditeur de textes et d'avoir MySQL de lancé.
-Dans le terminale de votre editeur de textes entrer la commande suivant (gitbash):
+Dans le terminal de votre editeur de textes entrer la commande suivant (gitbash):
 - php -S localhost:xxxx -t public
 Sur votre navigateur aller sur localhost:xxxx 
 
@@ -55,7 +55,7 @@ Sur votre navigateur aller sur localhost:xxxx
 
 ## Auteurs
 
-* **CROSS Maxence** _alias_ [@Maxencele2001](https://github.com/maxencele2001)
+* **CROSSE Maxence** _alias_ [@Maxencele2001](https://github.com/maxencele2001)
 * **DIET Ebbane** _alias_ [@ebbane](https://github.com/ebbane)
 
 ## GitHub

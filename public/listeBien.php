@@ -60,10 +60,6 @@ if(!empty($_POST['prixmin']) && !empty($_POST['prixmax']) && !empty($_POST['nb_v
   if(isset($_POST['ville'])){
     $ville = $_POST['ville'];
     $liste=getVille($ville);
-    #var_dump($liste);
-    ?><div class="alert alert-danger" role="alert">
-      <?php echo("Erreur"); ?>
-      </div> <?php
   }
   else{
     $liste = getListe($prixmin,$prixmax,$ville,$nb_voyageurs);
