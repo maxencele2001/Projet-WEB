@@ -13,5 +13,5 @@ function deleteAdd($id_annonce){
 
 deleteAdd($id_annonce);
 
-echo("c fait");
+echo("Annonce Supprimée avec succès");
 #redirect('/logged/editAnnonce.php');

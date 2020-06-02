@@ -7,7 +7,7 @@ body {
 form {
   padding: 2.5rem;
   background: rgb(255, 255, 255);
-  width: 50%;
+  width: 65%;
   display: block;
   margin: auto;
 }
@@ -17,4 +17,16 @@ form {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.822);
   background: rgb(0, 0, 0);
+}
+
+ /* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+margin:0;
 }

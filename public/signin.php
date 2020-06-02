@@ -7,7 +7,7 @@ require_once '../functions/redirect.php';?>
 
 <form method="POST" enctype="multipart/form-data">
  
-      <div class="form-group">
+      <div class="form-group photo">
         <label for="nom">Votre photo de profil</label>
         <input type="file" name="profilePic" />
       <div class="form-group">

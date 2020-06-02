@@ -20,7 +20,7 @@ $profil = getProfil($id); ?>
       <div class="card-body">
       <h3 class="card-title"><?php echo $profil['nom']?> <?php echo $profil['prenom']?></h3>
         <h4 class="card-text"><?php echo $profil['email']?> </h4>
-        <a href="editAnnonce.php/" class="btn btn-primary"> Mes annonces</a>
+        <a href="annonceHote.php/" class="btn btn-primary"> Mes annonces</a>
         <a type="button" class="btn btn-outline-dark" href="edit.php/"><i class="fas fa-user-edit"></i></a>
       </div>
     </div>

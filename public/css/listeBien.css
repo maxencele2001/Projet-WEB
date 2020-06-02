@@ -1,19 +1,21 @@
-.card-img-top {
-    margin:auto;
-    display:block;
+form {
+    margin: 1em;
+    margin-top: 1em;
 }
-
-
-.input-group {
-    margin: auto;
-}
-
-.card-img {
-    display: block;
-    margin: auto;
-    height: 100%;
-}
-
-.btn {
+a {
     margin-left: 0.5em;
+    margin-top: 1em;
 }
+
+ /* Firefox */
+ input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Chrome */
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin:0;
+  }
+  
