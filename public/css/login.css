@@ -1,0 +1,41 @@
+body {
+  background-image: url('../img/background/form.jpg');
+  background-size: cover;
+}
+
+  form {
+    padding: 2.5rem;
+    background: rgb(255, 255, 255);
+    width: 70%;
+    display: block;
+    margin: auto; 
+    margin-top: 7em;
+  
+
+   
+  }
+  label {
+    font-size: .85rem;
+    text-transform: uppercase;
+    color: black;
+  }
+  .form-control {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+  .btn {
+    padding: .5rem 2.5rem;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.822);
+    background: rgb(0, 0, 0);
+    display: block;
+   margin : auto;
+  }
+
+  
+  

@@ -1,23 +1,36 @@
-<?php //faire un foreach de tous les biens et mettre la card entiere en href plus pratique
-require_once '../functions/listeBien.php';?>
+<?php 
+$title = "Trouvez votre bonheur";
+$css = "../css/listeBien.css"; 
+//faire un foreach de tous les biens et mettre la card entiere en href plus pratique
+require_once '../functions/listeBien.php';
+require_once '../layout/header.php';
+?>
 
+<form method="POST" class="recherche">
 
+  <div class="input-group input-group-lg">
 
+    <div class="input-group-prepend">
+ 
+      <span class="form-control" id="inputGroup-sizing-default">€ -</span>
+      <input type="number" class="form-control" name="prixmin" id="prixmin" min="0">
 
-<form method="POST">
-<input class="form-control" type="date" name="date">
-<input class="form-control" type="date" name="date2">
-<input type="text" name="ville" id="ville">
-<input type="number" name="prixmin" id="prixmin" min="0">
-<input type="number" name="prixmax" id="prixmax" min="0">
-<input type="number" name="nb_voyageurs" id="nb_voyageurs" min="0">
-<input type="submit" value="Envoyer" />
+      <span class="form-control" id="inputGroup-sizing-default">€ +</span>
+      <input type="number" class="form-control" name="prixmax" id="prixmax" min="0">
+
+     <span class="form-control" id="inputGroup-sizing-default">Voyageurs</span>
+     <input type="number" class="form-control" name="nb_voyageurs" id="nb_voyageurs" min="0">
+
+     <span class="form-control btn-dark" id="inputGroup-sizing-default">Ville</span>
+     <input class="form-control" id="ville" type="text" name="ville" placeholder="Entrer une destination">
+
+     <input type="submit" value="Envoyer" class="btn btn-dark" />
+  
+    </div>
+
+  </div>
+
 </form>
-
-
-
-
-
 
 <?php
 $prixmin = null;
@@ -47,17 +60,15 @@ if(!empty($_POST['prixmin']) && !empty($_POST['prixmax']) && !empty($_POST['nb_v
   if(isset($_POST['ville'])){
     $ville = $_POST['ville'];
     $liste=getVille($ville);
-    var_dump($liste);
-    echo("ouicmoi");
+    #var_dump($liste);
+    ?><div class="alert alert-danger" role="alert">
+      <?php echo("Erreur"); ?>
+      </div> <?php
   }
   else{
     $liste = getListe($prixmin,$prixmax,$ville,$nb_voyageurs);
   }
 }
-
-
-
-
 
 #$liste = getListe();
 foreach ($liste as $annonce){
@@ -66,18 +77,23 @@ $photos = getAnnonce($id_add);
 $photo = $photos['photo'];
 $photo = explode (";", $photo);
 $photo = $photo[0]?>
-<div class="card mb-3" style="max-width: 540px;">
+
+<a type="button" class="btn " href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:620px";>
+<div class="card mb-3" >
   <div class="row no-gutters">
     <div class="col-md-4">
-    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img'/>"; ?>
+    <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-        <p class="card-text"><?php echo $annonce['adresse'] ?></p>
-        <p class="card-text"><a href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Voir</a></p>
+        <h5 class="card-title"><h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+        <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lit |</small> <?php echo $annonce['prix'] ?>€/nuit</p>
       </div>
     </div>
   </div>
 </div>
+</a>
+
 <?php } 
+
+?>

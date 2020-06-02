@@ -1,4 +1,6 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Editer votre profil";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 ?>
@@ -10,7 +12,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     $email = $_POST['email'];
     $password = $_POST['password'];
     $is_hote = $_POST['is_hote'];
-    updateProfil($id, $email, $password, $is_hote);
+    updateProfil($id, $password, $email,  $is_hote);
 }else{?>
     <div class="alert alert-danger" role="alert">
       Mots de passe différents
@@ -19,7 +21,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
 }
 ?>
 
-<form method="POST">
+<form method="POST" class="form">
     <div class="container">
   <div class="form-group">
     <label for="email">Email</label>
@@ -35,11 +37,12 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
-    <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
+    <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
   </div>
-  <button type="submit" class="btn btn-primary">Modifier</button>
-  <a href="/admin/edit.php?id=<?php echo $voiture['ID']; ?>" class="btn btn-warning">Editer</a>
+  <button type="submit" class="btn btn-dark">Modifier</button>
 </div>
 </form>
+
+
 
 <?php require_once '../../layout/footer.php';

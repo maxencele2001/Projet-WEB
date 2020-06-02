@@ -1,19 +1,29 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$title = "Je créer mon annonce";
+$css = "../css/addAnnonce.css";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
+require_once '../../functions/redirect.php';
 if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
   $id_users = $_SESSION['user_id'];
 }
 else{
-  echo("ptit filou faut se co hehe");
+  ?>
+  <div class="alert alert-danger" role="alert">
+
+  <?php echo("Connectez vous pour créer une annonce");?>
+  </div> <?php
 }
 ?>
 
 <form method="POST" enctype="multipart/form-data">
-<div class="form-group">
+
+ <div class="form-group">
     <label for="titre">Titre</label>
     <input type="text" class="form-control" id="titre" name="titre">
-  </div>
+ </div>
+ 
   <div class="form-group">
     <label for="adresse">Adresse</label>
     <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse + ZIP">
@@ -41,6 +51,9 @@ else{
       <option>3</option>
       <option>4</option>
       <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
     </select>
   </div>
   <div class="form-group">
@@ -52,17 +65,27 @@ else{
     <input type="number" min="0" class="form-control" id="prix" name="prix">
   </div>
   <div class="form-group">
+    <label for="localisation">Localisation</label>
+    <input  class="form-control" id="localisation" name="localisation">
+  </div>
+  <div class="form-group">
+    <label for="photo">Photos</label>
     <input type="file" id="photo" name="photo[]" multiple />
-</div>
-<button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+  <button type="submit" class="btn">Enregistrer</button>
 </form>
+
+
+
+
+
 <?php
 
-function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users): bool
+function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voyageurs, string $description, string $photobdd, int $prix, int $id_users, string $localisation ): bool
 {
   $pdo = getPdo();// recup de ma bdd
   
-  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users)";// formule pour l'ajout
+  $query = "INSERT INTO annonces (titre, adresse, nb_chambre, nb_voyageurs, description, photo, prix, id_users, localisation) VALUES (:titre, :adresse, :nb_chambre, :nb_voyageurs, :description, :photo, :prix, :id_users, :localisation)";// formule pour l'ajout
   $stmt = $pdo->prepare($query);
   return $stmt->execute([
     'titre' => $titre,
@@ -72,18 +95,15 @@ function addAnnonce(string $titre,string $adresse, int $nb_chambre, int $nb_voya
     'description' => $description,
     'photo' => $photobdd,
     'prix' => $prix,
-    'id_users' => $id_users
+    'id_users' => $id_users,
+    'localisation' => $localisation,
   ]);
 }
 
 
-if (!empty($_POST['titre'])){
-echo "jsuis con";
-var_dump($_POST);
-}
 
 // Fichiers multiples
-if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix'])){
+if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambre']) && isset($_POST['nb_voyageurs']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['localisation']) && !empty($_POST['titre']) && !empty($_POST['adresse']) && !empty($_POST['nb_chambre']) && !empty($_POST['nb_voyageurs']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['localisation'])){
     echo "oui";
     $titre = $_POST['titre'];
     $adresse = $_POST['adresse'];
@@ -91,8 +111,8 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
     $nb_voyageurs = $_POST['nb_voyageurs'];
     $description = $_POST['description'];
     $prix = $_POST['prix'];
+    $localisation = $_POST['localisation'];
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])){
-      echo "photo";
       $photobdd = "";
     foreach ($_FILES['photo']['error'] as $key => $error) {
       if ($error == UPLOAD_ERR_OK) {
@@ -110,7 +130,8 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
           
         }
       }
-    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users);//gaffe foreach
+    }addAnnonce($titre, $adresse, $nb_chambre, $nb_voyageurs, $description, $photobdd, $prix, $id_users, $localisation);
+    //redirect('../editAnnonce.php');
   }
 }
 

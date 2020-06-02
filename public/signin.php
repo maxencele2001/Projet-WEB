@@ -1,37 +1,42 @@
-<?php require_once '../layout/header.php'; 
+<?php 
+$title = "Inscription";
+$css = "css/signUp.css";
+require_once '../layout/header.php'; 
 require_once '../functions/db.php';
 require_once '../functions/redirect.php';?>
 
-<link rel="stylesheet" href='css/signUp.css'> 
 <form method="POST" enctype="multipart/form-data">
-    <div class="container">
-    <input type="file" name="profilePic" />
-    <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom ..." />
-  </div>
-  <div class="form-group">
-    <label for="prenom">Prenom</label>
-    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom ..." />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" />
-  </div>
-  <div class="form-group">
-    <label for="password">Mot de passe</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe ..." />
-  </div>
-  <div class="form-group">
-    <label for="password">Confirmation mot de passe</label>
-    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirmation ..." />
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
-    <label class="form-check-label" for="exampleCheck1">Êtes-vous hôte ?</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
-</div>
+ 
+      <div class="form-group photo">
+        <label for="nom">Votre photo de profil</label>
+        <input type="file" name="profilePic" />
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom ..." />
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom ..." />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" />
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe ..." />
+      </div>
+      <div class="form-group">
+       <label for="password">Confirmation mot de passe</label>
+       <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirmation ..." />
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="is_hote" name='is_hote'>
+        <label class="form-check-label" for="exampleCheck1">Je veux devenir hôte</label>
+      </div>
+      <button type="submit" class="btn">Enregistrer</button>
+
+  
 </form>
 <?php
 function inscrire(string $nom,string $prenom, string $password, string $email, string $profilePic, bool $is_hote): bool

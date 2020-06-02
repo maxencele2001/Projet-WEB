@@ -1,4 +1,6 @@
 <?php
+$title = "Connexion";
+$css ="css/login.css";
 session_start(); // formule pour initialiser une session
 require_once '../layout/header.php';
 require_once '../functions/db.php';
@@ -31,8 +33,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
   }
 }
 ?>
-<h1>Connexion</h1>
-<h4>Mets les bons identifiants bogoss</h4>
+
+
 
 <?php if ($verif) { ?>
   <div class="alert alert-danger" role="alert">
@@ -42,15 +44,26 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
 <?php } ?>
 
 <form method="POST">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Email ..."/>
+  <div class="container">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email ..."/>
+   </div>
+   <div class="form-group">
+     <label for="password">Mot de passe</label>
+     <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe..." />
+   </div>
+   <button type="submit" class="btn">Connexion</button>
   </div>
-  <div class="form-group">
-    <label for="password">Mot de passe</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe..." />
-  </div>
-  <button type="submit" class="btn btn-primary">Connexion</button>
 </form>
 
-<?php require_once '../layout/footer.php'; ?>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

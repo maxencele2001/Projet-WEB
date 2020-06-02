@@ -1,5 +1,6 @@
 figcaption {
-	background-image: url('https://cdn.pixabay.com/photo/2016/03/05/20/13/lyon-1238710_1280.jpg');
+	background-image: url("../img/background/accueil.jpg");
+	background-size: cover;
   }
   
   .section {
@@ -107,3 +108,18 @@ figcaption {
 	  font-size: 16px;
 	  color: rgba(255, 255, 255, 0.8);
   }
+  /* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	margin:0;
+}
+  
+h3 {
+	margin: 1em;
+}
