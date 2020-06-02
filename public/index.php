@@ -23,6 +23,10 @@ require_once '../functions/listeBien.php';
 									<span class="form-label">Votre destination</span>
 									<input class="form-control" id="ville" type="text" name="ville" required>
 								</div>
+								<div class="form-group">
+								    <span class="form-label">Voyageurs</span>
+								    <input class="form-control" id="nb_voyageurs" type="number" name="nb-voyageurs"> 
+								</div>
 								<div class="row">
 								  <div class="col-sm-6">
 									  <div class="form-group">
@@ -38,24 +42,6 @@ require_once '../functions/listeBien.php';
 								  </div>
 							  </div>
 								<div class="row">
-								  <div class="col-sm-6">
-									  <div class="form-group">
-											<span class="form-label ">Chambres</span>
-										  <select class="form-control">
-												<option>1</option>
-												<option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-												<option>5</option>
-										  </select>	
-									  </div>
-									</div>
-									<div class="col-sm-6">
-									  <div class="form-group">
-										<span class="form-label">Voyageurs</span>
-										<input class="form-control" id="nb_voyageurs" type="number" name="nb-voyageurs"> 
-									  </div>
-									</div>
 								    <div class="form-btn">
 									  <button class="submit-btn">Recherche</button>
                                     </div>
