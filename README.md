@@ -50,9 +50,8 @@ Sur votre navigateur aller sur localhost:xxxx
 * [PHP](https://www.php.net/) - Langage de programmation qui génère du contenu web dynamique
 * [MySQL](https://www.mysql.com/fr/) - système de gestion de bases de données
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)]
-[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)]
-[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)]
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg) ![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)]
+![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)]
 
 ## Auteurs
 
