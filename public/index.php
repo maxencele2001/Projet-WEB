@@ -91,8 +91,4 @@ require_once '../functions/listeBien.php';
 	
   <?php } ?>
 
- 
-
-
-
 <?php require_once '../layout/footer.php'; ?>

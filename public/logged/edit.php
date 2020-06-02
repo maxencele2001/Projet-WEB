@@ -43,6 +43,4 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
 </div>
 </form>
 
-
-
 <?php require_once '../../layout/footer.php';

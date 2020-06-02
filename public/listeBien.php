@@ -32,8 +32,6 @@ $nb_voyageurs = null;
   $id_add
 }*/
 
-
-
 if(!empty($_POST['prixmin']) && !empty($_POST['prixmax']) && !empty($_POST['nb_voyageurs']) && isset($_POST['ville'])){
   $prixmin = $_POST['prixmin'];
   $prixmax = $_POST['prixmax'];

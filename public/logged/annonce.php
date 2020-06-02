@@ -18,12 +18,10 @@ else{
 ?>
 
 <form method="POST" enctype="multipart/form-data">
-
  <div class="form-group">
     <label for="titre">Titre</label>
     <input type="text" class="form-control" id="titre" name="titre">
  </div>
- 
   <div class="form-group">
     <label for="adresse">Adresse</label>
     <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse + ZIP">
@@ -74,9 +72,6 @@ else{
   </div>
   <button type="submit" class="btn">Enregistrer</button>
 </form>
-
-
-
 
 
 <?php
@@ -134,26 +129,5 @@ if(isset($_POST['titre']) && isset($_POST['adresse']) && isset($_POST['nb_chambr
     //redirect('../editAnnonce.php');
   }
 }
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php require_once '../../layout/footer.php';
+<?php require_once '../../layout/footer.php'; ?>

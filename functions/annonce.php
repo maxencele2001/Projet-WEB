@@ -24,3 +24,4 @@ function getAnnonce(int $id): ?array
 
   return $row;
 }
+

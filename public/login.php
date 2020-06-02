@@ -34,8 +34,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
 }
 ?>
 
-
-
 <?php if ($verif) { ?>
   <div class="alert alert-danger" role="alert">
     Mauvais identifiants bogoss
@@ -56,8 +54,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {// bien y mettre en 
    <button type="submit" class="btn">Connexion</button>
   </div>
 </form>
-
-
 
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

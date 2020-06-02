@@ -8,14 +8,14 @@ a {
 }
 
  /* Firefox */
- input[type=number] {
+input[type=number] {
     -moz-appearance: textfield;
-  }
+}
   
   /* Chrome */
-  input::-webkit-inner-spin-button,
-  input::-webkit-outer-spin-button { 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
   -webkit-appearance: none;
   margin:0;
-  }
+}
   
