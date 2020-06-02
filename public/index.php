@@ -44,8 +44,7 @@ $title = "Accueil";
                                                 <option>3</option>
                                                 <option>4</option>
 												<option>5</option>
-										  </select>
-											
+										  </select>	
 									  </div>
 									</div>
 									<div class="col-sm-6">
@@ -77,17 +76,15 @@ $title = "Accueil";
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
     
-	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 25rem;">
-	<div class="card mb-3" style="width: 18rem">
-	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	  
+	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 19rem;">
+	  <div class="card mb-3">
+	    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
         <div class="card-body">
           <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
           <p class="card-text"><small class="text-muted"><?php echo $annonce_coeur['nb_voyageurs'] ?> voyageurs · <?php echo $annonce_coeur['nb_chambre'] ?> lits | <?php echo $annonce_coeur['prix'] ?>€/nuit </small></p>
-		</div>
-	  
-	</div>
-  </a>
+		</div> 
+	  </div>
+    </a>
 	
   <?php } ?>
 
