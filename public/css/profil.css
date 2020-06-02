@@ -1,27 +1,6 @@
-body{
-    background-image: url("https://cdn.pixabay.com/photo/2015/05/15/14/21/architecture-768432_1280.jpg");
-    background-size: cover;
-}
-section{
-    
-    margin: 10em;
-   
-}
 
-.card-img {
-    margin-top: 2em;
-    overflow:hidden;
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
-    border-radius:50px;
-    width:90px;
-    height:90px;
-}
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-}
-.card-deck {
-    width: 100%;
+.card-img-top {
+    display: block;
+    height: auto;
 }

@@ -18,7 +18,7 @@ $title = "Accueil";
 							<form method="POST">
 							  <div class="form-group">
 									<span class="form-label">Votre destination</span>
-									<input class="form-control" id="ville" type="text" name="ville" placeholder="Entrer une destination" required>
+									<input class="form-control" id="ville" type="text" name="ville" required>
 								</div>
 								<div class="row">
 								  <div class="col-sm-6">
@@ -37,7 +37,7 @@ $title = "Accueil";
 								<div class="row">
 								  <div class="col-sm-6">
 									  <div class="form-group">
-											<span class="form-label">Chambres</span>
+											<span class="form-label ">Chambres</span>
 										  <select class="form-control">
 												<option>1</option>
 												<option>2</option>
@@ -45,7 +45,7 @@ $title = "Accueil";
                                                 <option>4</option>
 												<option>5</option>
 										  </select>
-											<span class="select-arrow"></span>
+											
 									  </div>
 									</div>
 									<div class="col-sm-6">
@@ -68,7 +68,6 @@ $title = "Accueil";
 
   <h3>Les coups de <i class="fas fa-heart"></i> </h3>
    
-
   <?php 
   $coupcoeur=getCoup_Coeur();
   #var_dump($coupcoeur);
@@ -78,16 +77,18 @@ $title = "Accueil";
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
     
- 	
-	<div class="card mb-3" style="width: 18rem;">
+	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 25rem;">
+	<div class="card mb-3" style="width: 18rem">
 	  <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	  <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 18rem;">
+	  
         <div class="card-body">
           <h5 class="card-title"><?php echo $annonce_coeur['titre'] ?></h5>
           <p class="card-text"><small class="text-muted"><?php echo $annonce_coeur['nb_voyageurs'] ?> voyageurs · <?php echo $annonce_coeur['nb_chambre'] ?> lits | <?php echo $annonce_coeur['prix'] ?>€/nuit </small></p>
 		</div>
-	  </a>
-    </div>
+	  
+	</div>
+  </a>
+	
   <?php } ?>
 
  

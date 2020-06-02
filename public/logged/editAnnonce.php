@@ -16,20 +16,23 @@ foreach ($myAnnonce as $annonce){
     <link rel="stylesheet" href="../css/editAnnonce.css" >
     
 
-    <div class="card mb-3" style="width: 18rem;">
-	    <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
-	    <a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
-          <p class="card-text"><?php echo $annonce['adresse'] ?></p>
-          <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lits | <?php echo $annonce['prix'] ?>€/nuit </small></p>
-        </div>
-      </a>
-        <p class="link">
-          <a href="../confirmEdit.php?id=<?php echo $annonce['id']; ?>" class="btn btn-dark">Modifier</a>
-          <a href="../suppr.php?id=<?php echo $annonce['id']; ?>" class="btn btn-warning">Supprimer</a>
-        </p>
+<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:620px";>
+<div class="card mb-3" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <?php echo "<img src='/../img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><h5 class="card-title"><?php echo $annonce['titre'] ?></h5>
+        <p class="card-text"><small class="text-muted"><?php echo $annonce['nb_voyageurs'] ?> voyageurs · <?php echo $annonce['nb_chambre'] ?> lit |</small> <?php echo $annonce['prix'] ?>€/nuit</p>
+      </div>
       
     </div>
+  </div>
+
+</div>
+</a>
+
 <?php }
 require_once '../../layout/footer.php'; ?>
