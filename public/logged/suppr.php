@@ -1,4 +1,6 @@
 <?php 
+$title = "Annonce supprimée";
+require_once '../layout/header.php'; 
 require_once '../../functions/db.php';
 require_once '../../functions/redirect.php';
 $id_annonce = $_GET['id'];

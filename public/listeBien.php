@@ -7,29 +7,14 @@ require_once '../layout/header.php';
 ?>
 
 <form method="POST" class="recherche">
-
-  <div class="input-group input-group-lg">
-
-    <div class="input-group-prepend">
- 
-      <span class="form-control" id="inputGroup-sizing-default">€ -</span>
-      <input type="number" class="form-control" name="prixmin" id="prixmin" min="0">
-
-      <span class="form-control" id="inputGroup-sizing-default">€ +</span>
-      <input type="number" class="form-control" name="prixmax" id="prixmax" min="0">
-
-     <span class="form-control" id="inputGroup-sizing-default">Voyageurs</span>
-     <input type="number" class="form-control" name="nb_voyageurs" id="nb_voyageurs" min="0">
-
-     <span class="form-control btn-dark" id="inputGroup-sizing-default">Ville</span>
-     <input class="form-control" id="ville" type="text" name="ville" placeholder="Entrer une destination">
-
-     <input type="submit" value="Envoyer" class="btn btn-dark" />
-  
+  <div class="input-group mb-3">
+    <div class="custom-file">
+      <input class="form-control" id="ville" type="text" name="ville" placeholder="Entrer une destination">
     </div>
-
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Rechercher</button>
+    </div>
   </div>
-
 </form>
 
 <?php
