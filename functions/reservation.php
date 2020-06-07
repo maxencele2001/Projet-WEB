@@ -115,17 +115,10 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
     $date = $_POST['date'];
     $date2 = $_POST['date2'];
     $verif = verif_reserve($date,$date2);
-    #var_dump($verif);
-    echo("oui");
-    var_dump($id_annonce);
     $reserve = 0;
     foreach($verif as $num_appart){#cherche si l'annonce est déja prise et retourne 1 pour empecher la reservation
-      var_dump($num_appart);
       if(intval($num_appart) == intval($id_annonce)){
-        echo("heho");
         $reserve =1;
-      }else{
-        echo("pas pris");
       }
     }
     #$arrivee = $_POST['date'];
@@ -149,7 +142,6 @@ if(isset($_SESSION['state']) && $_SESSION['state'] == 'connected'){
     #rajouter if de verif de date
     if($reserve == 0){
       if ($solde_client>=0){
-        echo("oui oui");
         #OUVRIR maildev -s 2525 sur un autre terminal
         reserve($date,$date2,$id_annonce,$prix_total,$id_users,$voyageurs);
         updateSoldeHote($solde_hote,$id_hote);

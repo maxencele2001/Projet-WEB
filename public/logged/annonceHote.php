@@ -1,5 +1,6 @@
 <?php 
 $title = "Editer votre annonce";
+$css="";
 require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';

@@ -18,7 +18,7 @@ require_once '../functions/listeBien.php';
 				    </div>
 					<div class="col-md-4 col-md-pull-7">
 					  <div class="booking-form"> 
-							<form method="POST">
+							<form method="POST" action="listeBien.php">
 							  <div class="form-group">
 									<span class="form-label">Votre destination</span>
 									<input class="form-control" id="ville" type="text" name="ville" required>
@@ -65,7 +65,7 @@ require_once '../functions/listeBien.php';
     $photo = explode (";", $photo);
     $photo = $photo[0]?>
     
-	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 19rem;">
+	<a type="button" class="btn btn-light" href="pageAnnonce.php?id=<?php echo $annonce_coeur['id']; ?>" style="width: 23.5rem;">
 	  <div class="card mb-3">
 	    <?php echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top'/>"; ?> 
         <div class="card-body">

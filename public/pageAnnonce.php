@@ -8,7 +8,7 @@ require_once '../functions/reservation.php';
 $photos = $uneAnnonce['photo'];
 $photos = explode (";", $photos);
 foreach($photos as $photo){ 
-   echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' style='width: 18rem;'/>"; 
+   echo "<img src='img/annonce/".$photo."' alt='".$photo."' class='card-img-top' style='width: 22rem;'/>"; 
   
 }
 //$i = count($photos);

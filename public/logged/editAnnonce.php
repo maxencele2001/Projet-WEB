@@ -1,4 +1,6 @@
-<?php require_once '../../functions/db.php';
+<?php 
+$css="";
+require_once '../../functions/db.php';
 require_once '../../functions/edit.php';
 require_once '../../layout/header.php';
 require_once '../../functions/listeBien.php';

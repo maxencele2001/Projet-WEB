@@ -12,7 +12,7 @@ require_once '../layout/header.php';
       <input class="form-control" id="ville" type="text" name="ville" placeholder="Entrer une destination">
     </div>
     <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Rechercher</button>
+      <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon03">Rechercher</button>
     </div>
   </div>
 </form>
@@ -57,7 +57,7 @@ $photo = $photos['photo'];
 $photo = explode (";", $photo);
 $photo = $photo[0]?>
 
-<a type="button" class="btn " href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:620px";>
+<a type="button" class="btn " href="pageAnnonce.php?id=<?php echo $annonce['id']; ?>" style="width:725px";>
 <div class="card mb-3" >
   <div class="row no-gutters">
     <div class="col-md-4">
